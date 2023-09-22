@@ -1,3 +1,5 @@
+package application.potato;
+
 import javafx.fxml.FXML;
 import javafx.scene.shape.Circle;
 
@@ -7,22 +9,19 @@ public class CircleController {
     private int x;
     private int y;
 
-    public CircleController() {
-    }
-
     public void up() {
-        circle.setCenterX(--y);
+        circle.setCenterY(y -= 5);
     }
 
     public void down() {
-        circle.setCenterX(++y);
+        circle.setCenterY(y += 5);
     }
 
     public void left() {
-        circle.setCenterX(--x);
+        circle.setCenterX(x -= 5);
     }
 
     public void right() {
-        circle.setCenterX(++x);
+        circle.setCenterX(x += 5);
     }
 }
