@@ -1,4 +1,4 @@
-module application.potato {
+module application {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -7,6 +7,6 @@ module application.potato {
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
 
-    opens application.potato to javafx.fxml;
-    exports application.potato;
+    exports application;
+    opens application to javafx.fxml;
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<SplitPane dividerPositions="0.1908422459893048" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
+  <items>
+    <AnchorPane maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="potatoImage" fitHeight="100.0" fitWidth="100.0" layoutX="6.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icon.png" />
+               </image></ImageView>
+            <Label fx:id="potatoLabel" alignment="CENTER" layoutX="6.0" layoutY="115.0" prefHeight="18.0" prefWidth="100.0" text="Potato" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+  </items>
+</SplitPane>
