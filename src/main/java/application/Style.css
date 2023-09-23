@@ -1,7 +1,8 @@
-.label {
+#potatoLabel {
     -fx-font-size: 30;
+    -fx-font-family: "Time New Roman Boild Italic";
 }
 
-#potatoLabel {
-    -fx-font-size: 20;
+.root {
+    -fx-background-color: #e8e1c5;
 }

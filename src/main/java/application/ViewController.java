@@ -2,6 +2,7 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -17,5 +18,8 @@ public class ViewController {
 
     @FXML
     public Label potatoLabel;
+    @FXML
+    SplitPane splitPane = new SplitPane();
+
 
 }
