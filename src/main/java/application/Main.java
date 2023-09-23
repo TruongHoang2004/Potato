@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
 public class Main extends Application {
@@ -17,7 +16,7 @@ public class Main extends Application {
         scene.getStylesheets().add(css);
 
         stage.getIcons().add(new Image("icon.png"));
-        stage.setTitle("Hello!");
+        stage.setTitle("Potato");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

@@ -5,11 +5,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <SplitPane dividerPositions="0.5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewController">
     <items>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+        <AnchorPane maxHeight="-Infinity" maxWidth="200.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="100.0">
          <children>
                 <Label fx:id="potatoLabel" alignment="CENTER" layoutX="50.0" layoutY="14.0" prefHeight="18.0" prefWidth="100.0" text="Potato">
                <font>
@@ -23,6 +24,6 @@
             </ImageView>
          </children>
       </AnchorPane>
-        <AnchorPane maxHeight="-Infinity" maxWidth="637.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="637.0" />
+      <VBox maxHeight="-Infinity" prefHeight="600.0" prefWidth="600.0" />
     </items>
 </SplitPane>
