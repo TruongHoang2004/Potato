@@ -16,7 +16,6 @@ public class Main extends Application {
         scene.getStylesheets().add(css);
 
         String icon = this.getClass().getResource("image/icon.png").toExternalForm();
-        System.out.println(icon);
 
         boolean added = stage.getIcons().add(new Image(icon));
         stage.setTitle("Potato");
