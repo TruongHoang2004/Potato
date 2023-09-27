@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 600);
         String css = this.getClass().getResource("style/Style.css").toExternalForm();
         scene.getStylesheets().add(css);
