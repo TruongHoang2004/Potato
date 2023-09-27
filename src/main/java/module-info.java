@@ -8,5 +8,5 @@ module application {
     requires com.almasb.fxgl.all;
 
     exports application;
-    opens application to javafx.fxml;
+    opens application to javafx.fxml, javafx.media;
 }
