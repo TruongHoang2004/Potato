@@ -1,22 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane prefHeight="100.0" prefWidth="800.0">
+      <AnchorPane layoutX="35.0" layoutY="37.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="20.0">
          <children>
-            <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
-            <Pane layoutX="100.0" layoutY="2.0" prefHeight="100.0" prefWidth="38.0">
-               <children>
-                  <Separator orientation="VERTICAL" prefHeight="100.0" prefWidth="38.0" />
-               </children>
-            </Pane>
+            <Button layoutX="48.0" layoutY="245.0" mnemonicParsing="false" prefHeight="75.0" text="Dictionary" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="22.0" layoutY="436.0" mnemonicParsing="false" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="190.0" layoutX="5.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <image>
+                  <Image url="@../image/icon.png" />
+               </image>
+            </ImageView>
          </children>
-      </Pane>
+      </AnchorPane>
+      <TextField layoutX="422.0" layoutY="256.0" promptText="Giớt thiệu về app" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
    </children>
 </AnchorPane>
