@@ -7,28 +7,28 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.util.Objects;
 
-public class MenuController {
+public class Switcher {
 
     private Stage stage;
+
     private Scene scene;
+
     private Parent root;
 
-    public void switchToDictionary(ActionEvent event) throws  IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/dictionary.fxml"));
-        root = loader.load();
+    public void switchScene(String sceneName, ActionEvent event) throws Exception {
 
-        DictionaryController dictionaryController = loader.getController();
+        String path = "view/" + sceneName + ".fxml";
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
+        root = loader.load();
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
-        String css = this.getClass().getResource("style/Style.css").toExternalForm();
+        String css = Objects.requireNonNull(this.getClass().getResource("style/Style.css")).toExternalForm();
         scene.getStylesheets().add(css);
 
         stage.setScene(scene);
         stage.show();
-
     }
-
 }
