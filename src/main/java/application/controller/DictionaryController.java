@@ -11,6 +11,10 @@ public class DictionaryController {
     @FXML
     private TextField resultField = new TextField();
 
+    public void search() {
+        resultField.setText(searchField.getText());
+    }
+
     public void searchButtonOnAction() {
     }
 }

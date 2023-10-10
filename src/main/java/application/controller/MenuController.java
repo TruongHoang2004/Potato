@@ -15,4 +15,19 @@ public class MenuController {
 
     }
 
+    public void switchToLearning(ActionEvent event) {
+        try {
+            switcher.switchScene("learning", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void switchToGameMenu(ActionEvent event) {
+        try {
+            switcher.switchScene("gameMenu", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

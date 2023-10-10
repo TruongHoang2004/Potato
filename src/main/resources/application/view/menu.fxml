@@ -16,12 +16,12 @@
                   <Font name="Verdana" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToLearning" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
             </Button>
-            <Button layoutX="22.0" layoutY="436.0" mnemonicParsing="false" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+            <Button layoutX="22.0" layoutY="436.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="Verdana" size="18.0" />
                </font>
