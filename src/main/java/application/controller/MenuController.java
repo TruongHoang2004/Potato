@@ -30,4 +30,12 @@ public class MenuController {
             throw new RuntimeException(e);
         }
     }
+
+    public void back(ActionEvent event) {
+        try {
+            new Switcher().switchScene("menu", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

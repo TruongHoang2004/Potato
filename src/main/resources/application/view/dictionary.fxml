@@ -11,6 +11,30 @@
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
    <children>
+      <AnchorPane layoutX="14.0" layoutY="179.0" prefHeight="406.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="48.0" layoutY="245.0" mnemonicParsing="false" prefHeight="75.0" text="Dictionary" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToLearning" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="114.0" text="&lt;&lt; Back">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
       <Pane layoutX="233.0" layoutY="44.0" prefHeight="480.0" prefWidth="557.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="233.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
          <children>
             <TextField alignment="TOP_LEFT" layoutX="20.0" layoutY="93.0" prefHeight="158.0" prefWidth="176.0" promptText="Từ gợi ý">
@@ -54,24 +78,5 @@
             </Label>
          </children>
       </Pane>
-      <AnchorPane layoutX="20.0" layoutY="225.0" prefHeight="338.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0">
-         <children>
-            <Button layoutX="48.0" layoutY="245.0" mnemonicParsing="false" prefHeight="75.0" text="Dictionary" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="342.0" mnemonicParsing="false" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </AnchorPane>
    </children>
 </AnchorPane>

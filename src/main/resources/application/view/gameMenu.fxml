@@ -25,24 +25,29 @@
                 </Label>
             </children>
         </Pane>
-        <AnchorPane layoutX="20.0" layoutY="225.0" prefHeight="338.0" prefWidth="200.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0">
-            <children>
-                <Button layoutX="48.0" layoutY="245.0" mnemonicParsing="false" prefHeight="75.0" text="Dictionary" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-                    <font>
-                        <Font name="Verdana" size="18.0" />
-                    </font>
-                </Button>
-                <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-                    <font>
-                        <Font name="Verdana" size="18.0" />
-                    </font>
-                </Button>
-                <Button layoutX="10.0" layoutY="342.0" mnemonicParsing="false" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
-                    <font>
-                        <Font name="Verdana" size="18.0" />
-                    </font>
-                </Button>
-            </children>
-        </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="179.0" prefHeight="406.0" prefWidth="200.0">
+         <children>
+            <Button layoutX="48.0" layoutY="245.0" mnemonicParsing="false" onAction="#switchToDictionary" prefHeight="75.0" text="Dictionary" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="29.0" layoutY="332.0" mnemonicParsing="false" onAction="#switchToLearning" prefHeight="75.0" text="Learning" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="10.0" layoutY="342.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="75.0" text="Games" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Verdana" size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="114.0" text="&lt;&lt; Back">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>
