@@ -1,6 +1,7 @@
 package application.controller;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class DictionaryController extends MenuController {
@@ -9,9 +10,9 @@ public class DictionaryController extends MenuController {
     private TextField searchField = new TextField();
 
     @FXML
-    private TextField resultField = new TextField();
+    private TextArea resultArea = new TextArea();
 
     public void search() {
-        resultField.setText(searchField.getText());
+        resultArea.setText(searchField.getText());
     }
 }

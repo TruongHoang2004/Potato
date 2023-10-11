@@ -1,0 +1,5 @@
+package translator;
+
+class Translator {
+
+}
