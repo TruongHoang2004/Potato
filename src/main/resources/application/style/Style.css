@@ -1,4 +1,27 @@
 .root {
-    -fx-background-color: #fde683;
+    -fx-background-color: #fdf5f3;
 }
 
+.button {
+    -fx-background-color: #b0d4b8;
+    -fx-background-radius: 25;
+}
+
+.button:hover {
+    -fx-background-color: #eae7d6;
+    -fx-background-radius: 25;
+}
+
+.button:pressed {
+    -fx-background-color: #fdf5f3;
+    -fx-background-radius: 25;
+}
+
+.pane {
+    -fx-background-color : #b0d4b8;
+    -fx-background-radius: 20;
+}
+
+.round-layout {
+    -fx-border-radius: 50;
+}
