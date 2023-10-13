@@ -23,6 +23,12 @@ public class DictionaryController extends MenuController implements Initializabl
 
     private WebEngine webEngine;
 
+    @FXML
+    private TextArea recommendedArea = new TextArea();
+
+    @FXML
+    private AnchorPane resultAnchorPane = new AnchorPane();
+
     public void search() {
     }
 
