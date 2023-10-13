@@ -2,7 +2,6 @@ package application.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -16,18 +15,9 @@ public class DictionaryController extends MenuController implements Initializabl
     private TextField searchField = new TextField();
 
     @FXML
-    private TextArea fontTextArea = new TextArea();
-
-    @FXML
     private WebView webView = new WebView();
 
     private WebEngine webEngine;
-
-    @FXML
-    private TextArea recommendedArea = new TextArea();
-
-    @FXML
-    private AnchorPane resultAnchorPane = new AnchorPane();
 
     public void search() {
     }
