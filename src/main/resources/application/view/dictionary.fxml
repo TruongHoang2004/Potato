@@ -1,44 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
    <children>
-      <Pane layoutX="120.0" layoutY="118.0" prefHeight="462.0" prefWidth="670.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="118.0">
+      <Pane layoutX="100.0" layoutY="15.0" prefHeight="570.0" prefWidth="690.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="15.0">
          <children>
-            <TextField alignment="TOP_LEFT" layoutX="20.0" layoutY="93.0" prefHeight="158.0" prefWidth="176.0" promptText="Từ gợi ý">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="searchField" layoutX="20.0" layoutY="14.0" onKeyTyped="#search" prefHeight="52.0" prefWidth="176.0" promptText="nhập từ cần tìm">
+            <TextField fx:id="searchField" layoutX="20.0" layoutY="14.0" onKeyTyped="#search" prefHeight="46.0" prefWidth="216.0" promptText="nhập từ cần tìm">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="164.0" layoutY="28.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="205.0" layoutY="25.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/Search.png" />
                </image>
             </ImageView>
-            <TextField alignment="TOP_LEFT" layoutX="20.0" layoutY="268.0" prefHeight="203.0" prefWidth="176.0" promptText="Lịch sử">
+            <TextArea fx:id="recommendedArea" layoutX="20.0" layoutY="73.0" prefHeight="497.0" prefWidth="216.0" promptText="recommended words">
                <font>
-                  <Font name="Verdana" size="18.0" />
-               </font>
-            </TextField>
-            <TextArea fx:id="resultArea" layoutX="219.0" layoutY="14.0" prefHeight="459.0" prefWidth="326.0">
-               <font>
-                  <Font size="24.0" />
+                  <Font size="14.0" />
                </font>
             </TextArea>
+            <AnchorPane fx:id="resultAnchorPane" layoutX="256.0" layoutY="10.0" prefHeight="560.0" prefWidth="432.0">
+               <children>
+                  <TextArea fx:id="resultArea" layoutX="5.0" layoutY="63.0" prefHeight="497.0" prefWidth="422.0">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </TextArea>
+                  <HBox layoutX="5.0" layoutY="14.0" prefHeight="46.0" prefWidth="238.0">
+                     <children>
+                        <Label prefHeight="54.0" prefWidth="252.0" text="Nghĩa của từ:">
+                           <font>
+                              <Font name="Verdana Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
          </children>
       </Pane>
       <Pane layoutX="24.0" layoutY="32.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
@@ -61,7 +71,7 @@
             </VBox>
             <VBox layoutY="175.0" prefHeight="70.0" prefWidth="90.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#back" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#back" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
