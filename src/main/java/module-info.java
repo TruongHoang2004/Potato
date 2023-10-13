@@ -2,6 +2,8 @@ module application {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires javafx.web;
+
 
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
