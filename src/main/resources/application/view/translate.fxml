@@ -72,9 +72,8 @@
                <children>
                   <HBox prefHeight="37.0" prefWidth="678.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="166.0" text="Phát hiện ngôn ngữ" />
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Tiếng Anh" />
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Tiếng Việt" />
+                        <Button mnemonicParsing="false" onAction="#getOutputEnToVi" prefHeight="37.0" prefWidth="80.0" text="Tiếng Anh" />
+                        <Button mnemonicParsing="false" onAction="#getOutputViToEn" prefHeight="37.0" prefWidth="80.0" text="Tiếng Việt" />
                      </children>
                   </HBox>
                   <TextArea fx:id="inputTextArea" prefHeight="213.0" prefWidth="680.0">
@@ -87,8 +86,8 @@
                <children>
                   <HBox prefHeight="37.0" prefWidth="678.0">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Tiếng Việt" />
-                        <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="80.0" text="Tiếng Anh" />
+                        <Button mnemonicParsing="false" onAction="#getOutputEnToVi" prefHeight="37.0" prefWidth="80.0" text="Tiếng Việt" />
+                        <Button mnemonicParsing="false" onAction="#getOutputViToEn" prefHeight="37.0" prefWidth="80.0" text="Tiếng Anh" />
                      </children>
                   </HBox>
                   <TextArea fx:id="outputTextArea" prefHeight="214.0" prefWidth="678.0">

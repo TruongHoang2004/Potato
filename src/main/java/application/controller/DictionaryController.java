@@ -3,6 +3,7 @@ package application.controller;
 import database.DatabaseDictionary;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -18,6 +19,9 @@ public class DictionaryController extends MenuController implements Initializabl
 
     @FXML
     private WebView webView = new WebView();
+
+    @FXML
+    private ContextMenu contextMenu = new ContextMenu();
 
     private WebEngine webEngine;
     private DatabaseDictionary databaseDictionary = new DatabaseDictionary();
