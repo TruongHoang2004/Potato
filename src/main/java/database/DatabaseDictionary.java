@@ -77,7 +77,30 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public ArrayList<String> getAllWordsTarget() {
-        return null;
+        ArrayList<String> allTargetWord = new ArrayList<>();
+
+        final String SQL_QUERY = "SELECT target FROM dictionary";
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            try {
+                ResultSet rs = ps.executeQuery();
+                try {
+                    ArrayList<String> targets = new ArrayList<>();
+                    while (rs.next()) {
+                        targets.add(rs.getString(1));
+                    }
+                    return targets;
+                } finally {
+                    close(rs);
+                }
+            } finally {
+                close(ps);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<String>();
     }
 
     @Override

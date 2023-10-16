@@ -38,10 +38,6 @@ public class Tries {
         }
     }
 
-    public static void getWordSubTries(TrieNode crawl, String word) {
-
-    }
-
     public static class TrieNode {
         Map<Character, TrieNode> children = new TreeMap<>();
 
