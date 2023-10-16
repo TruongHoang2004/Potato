@@ -43,8 +43,6 @@ public class DictionaryController extends MenuController implements Initializabl
         loadPage();
     }
 
-
-
     public void loadPage() {
         webEngine.loadContent("");
     }

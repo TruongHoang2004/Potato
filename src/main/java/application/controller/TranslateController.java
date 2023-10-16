@@ -2,7 +2,7 @@ package application.controller;
 
 import database.TranslatorAPI;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
 public class TranslateController extends MenuController{
@@ -11,28 +11,38 @@ public class TranslateController extends MenuController{
     @FXML
     private TextArea outputTextArea = new TextArea();
     @FXML
-    private Button translateButtonViToEn = new Button();
+    private Label upperLabel = new Label("English");
     @FXML
-    private Button translateButtonEnToVi = new Button();
+    private Label bottomLabel = new Label("Vietnamese");
 
-    private int Mode = 0;
+    private int mode = 0;
 
-    public void getOutputEnToVi() {
-        Mode = 0;
+    /**
+     * Switch mode.
+     * Mode = 0 is en to vi
+     * Mode = 1 is vi to en
+     */
+    public void switchMode() {
+        if (mode == 0) {
+            mode = 1;
+            upperLabel.setText("Vietnamese");
+            bottomLabel.setText("English");
+        } else {
+            mode = 0;
+            upperLabel.setText("English");
+            bottomLabel.setText("Vietnamese");
+        }
     }
 
-    public void getOutputViToEn() {
-        Mode = 1;
-    }
     public void translate() {
         String input = inputTextArea.getText();
-        if (Mode == 0) {
-            String output = TranslatorAPI.translateEnToVi(input);
-            outputTextArea.setText(output);
+        String output;
+        if (mode == 0) {
+            output = TranslatorAPI.translateEnToVi(input);
         }
         else {
-            String output = TranslatorAPI.translateViToEn(input);
-            outputTextArea.setText(output);
+            output = TranslatorAPI.translateViToEn(input);
         }
+        outputTextArea.setText(output);
     }
 }
