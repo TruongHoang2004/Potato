@@ -17,7 +17,7 @@ public class MenuController {
 
     public void switchToLearning(ActionEvent event) {
         try {
-            switcher.switchScene("learning", event);
+            switcher.switchScene("translate", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

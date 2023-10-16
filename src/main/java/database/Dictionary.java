@@ -3,7 +3,7 @@ package database;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public abstract class Database {
+public abstract class Dictionary {
 
     public void initialize() throws SQLException {}
 
