@@ -1,6 +1,7 @@
 package application;
 
 import application.controller.DictionaryController;
+import database.Tries;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,6 +15,8 @@ public class Main extends Application {
     public static void initialize() {
         try {
             DictionaryController.databaseDictionary.initialize();
+            Tries.searchWord.addAll(DictionaryController.databaseDictionary.getAllWordsTarget());
+            Tries.insertAllWordsIntoTries(Tries.searchWord);
         } catch (SQLException e) {
             e.printStackTrace();
         }
