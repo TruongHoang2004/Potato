@@ -16,7 +16,7 @@ public class DatabaseDictionary extends Dictionary {
     /**
      * Connect to MYSQL database.
      */
-    private void connectToDatabase() throws SQLException {
+    private static void connectToDatabase() throws SQLException {
         System.out.println("Connecting to database...");
         connection = DriverManager.getConnection(MYSQL_URL, USER_NAME, PASS_WORD);
         System.out .println("Connected to database successfully!");
@@ -72,7 +72,30 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public ArrayList<Word> getAllWords() {
-        return null;
+        ArrayList<Word> allWords = new ArrayList<>();
+
+        final String SQL_QUERY = "SELECT * FROM dictionary";
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            try {
+                ResultSet rs = ps.executeQuery();
+                try {
+                    ArrayList<Word> words = new ArrayList<>();
+                    while (rs.next()) {
+                        words.add(new Word(rs.getString(1), rs.getString(2)));
+                    }
+                    return words;
+                } finally {
+                    close(rs);
+                }
+            } finally {
+                close(ps);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return new ArrayList<Word>();
     }
 
     @Override
@@ -131,11 +154,38 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public void addWord(String target, String explain) {
-
+        final String SQL_QUERY = "INSERT INTO dictionary (target, definition) VALUES (?, ?)";
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+           ps.setString(1, target);
+           ps.setString(2, explain);
+           close(ps);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     public void editWord(String target, String explain) {
+        final String SQL_QUERY = "UPDATE dictionary SET definition = ? WHERE target = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            ps.setString(1, explain);
+            ps.setString(2, target);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
+    @Override
+    public void deleteWord(String target) {
+        final  String SQL_QUERY = "DELETE FROM dictionary WHERE target = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
+            ps.setString(1, target);
+            close(ps);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

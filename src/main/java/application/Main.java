@@ -1,20 +1,32 @@
 package application;
 
+import application.controller.DictionaryController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class Main extends Application {
+
+    public static void initialize() {
+        try {
+            DictionaryController.databaseDictionary.initialize();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        Scene scene = new Scene(fxmlLoader.load());
         String css = this.getClass().getResource("style/Style.css").toExternalForm();
         scene.getStylesheets().add(css);
+
+        initialize();
 
         String icon = this.getClass().getResource("image/icon.png").toExternalForm();
 

@@ -1,14 +1,14 @@
 package application.controller;
 
-import application.Switcher;
+import application.SceneManager;
 import javafx.event.ActionEvent;
 
 public class MenuController {
-    Switcher switcher = new Switcher();
+    SceneManager sceneManager = new SceneManager();
 
     public void switchToDictionary(ActionEvent event) {
         try {
-            switcher.switchScene("dictionary", event);
+            sceneManager.switchScene("dictionary", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -17,7 +17,7 @@ public class MenuController {
 
     public void switchToLearning(ActionEvent event) {
         try {
-            switcher.switchScene("translate", event);
+            sceneManager.switchScene("translate", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -25,7 +25,7 @@ public class MenuController {
 
     public void switchToGameMenu(ActionEvent event) {
         try {
-            switcher.switchScene("gameMenu", event);
+            sceneManager.switchScene("gameMenu", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -33,9 +33,18 @@ public class MenuController {
 
     public void back(ActionEvent event) {
         try {
-            new Switcher().switchScene("menu", event);
+            new SceneManager().switchScene("menu", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
+
+    public void switchToEditor(ActionEvent event) {
+        try {
+            sceneManager.switchScene("editor", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

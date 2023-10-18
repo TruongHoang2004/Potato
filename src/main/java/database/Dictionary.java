@@ -18,4 +18,6 @@ public abstract class Dictionary {
     public abstract void addWord(final String target, final String explain);
 
     public abstract void editWord(final String target, final String explain);
+
+    public abstract void deleteWord(final String target);
 }

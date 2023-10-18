@@ -9,7 +9,6 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class DictionaryController extends MenuController implements Initializable {
@@ -24,7 +23,7 @@ public class DictionaryController extends MenuController implements Initializabl
     private ContextMenu contextMenu = new ContextMenu();
 
     private WebEngine webEngine;
-    private DatabaseDictionary databaseDictionary = new DatabaseDictionary();
+    public static DatabaseDictionary databaseDictionary = new DatabaseDictionary();
 
     public void search() {
         String word = searchField.getText();
@@ -34,11 +33,6 @@ public class DictionaryController extends MenuController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            databaseDictionary.initialize();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
         webEngine = webView.getEngine();
         loadPage();
     }
