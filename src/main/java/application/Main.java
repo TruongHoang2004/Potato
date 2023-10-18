@@ -24,12 +24,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        initialize();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         String css = this.getClass().getResource("style/Style.css").toExternalForm();
         scene.getStylesheets().add(css);
 
-        initialize();
 
         String icon = this.getClass().getResource("image/icon.png").toExternalForm();
 

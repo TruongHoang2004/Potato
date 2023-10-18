@@ -1,7 +1,6 @@
 package application.controller;
 
 import database.DatabaseDictionary;
-import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -37,22 +36,26 @@ public class DictionaryController extends MenuController implements Initializabl
             String definition = databaseDictionary.lookUpWord(word);
             webEngine.loadContent(definition);
             proposeWordListAction(word);
+        } else if (mode.equals("edit")) {
+            String word = searchField.getText();
+            htmlEditor.setHtmlText(databaseDictionary.lookUpWord(word));
+            proposeWordListAction(word);
         }
     }
 
     private void proposeWordListAction(String word) {
-        proposeWordList.getItems().clear();
-        proposeWordList.getItems().addAll(Tries.getWordSub(word));
+        proposeWordList.scrollTo(word);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         webEngine = webView.getEngine();
         loadPage();
+        proposeWordList.getItems().addAll(databaseDictionary.getAllWordsTarget());
 
         proposeWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            StringBuilder stringBuilder = new StringBuilder(newValue);
-            searchField.setText(stringBuilder.toString());
+            String word = newValue;
+            searchField.setText(word);
             searchBarAction();
         });
     }

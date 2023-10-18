@@ -95,7 +95,7 @@ public class DatabaseDictionary extends Dictionary {
             e.printStackTrace();
         }
 
-        return new ArrayList<Word>();
+        return new ArrayList<>();
     }
 
     @Override
@@ -123,7 +123,7 @@ public class DatabaseDictionary extends Dictionary {
             e.printStackTrace();
         }
 
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     @Override

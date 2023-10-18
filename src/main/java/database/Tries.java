@@ -35,6 +35,10 @@ public class Tries {
         ArrayList<String> proposeWord = new ArrayList<>();
         TrieNode crawl = root;
 
+        if (word == null) {
+            return proposeWord;
+        }
+
         int length = word.length();
         for (int i = 0; i < length; ++i) {
             if (crawl.children.containsKey(word.charAt(i))) {
