@@ -1,6 +1,7 @@
 package application.controller;
 
 import database.DatabaseDictionary;
+import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -10,7 +11,9 @@ import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
+import java.net.PasswordAuthentication;
 import java.net.URL;
+import java.util.Collections;
 import java.util.ResourceBundle;
 
 public class DictionaryController extends MenuController implements Initializable {
@@ -74,6 +77,8 @@ public class DictionaryController extends MenuController implements Initializabl
         mode = "edit";
         webView.setVisible(false);
         editPane.setVisible(true);
+        searchBarAction();
+
     }
 
     public void switchToSearch() {
@@ -83,20 +88,27 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void okButton() {
+        String word = searchField.getText();
+
         if (mode.equals("add")) {
-            databaseDictionary.addWord(searchField.getText(), htmlEditor.getHtmlText());
+            databaseDictionary.addWord(word, htmlEditor.getHtmlText());
+            Tries.searchWord.add(word);
+            Tries.insertWordIntoTries(word);
+            proposeWordList.getItems().add(word);
+            Collections.sort(proposeWordList.getItems());
         } else if (mode.equals("edit")) {
-            databaseDictionary.editWord(searchField.getText(), htmlEditor.getHtmlText());
+            databaseDictionary.editWord(word, htmlEditor.getHtmlText());
         }
     }
 
-    public void editWord() {
-        if (mode.equals("edit")) {
-            databaseDictionary.editWord(searchField.getText(), htmlEditor.getHtmlText());
-        } else if (mode.equals("add")) {
-            databaseDictionary.addWord(searchField.getText(), htmlEditor.getHtmlText());
-        }
+    public void deleteWord() {
+        String word = searchField.getText();
 
-        proposeWordList.getItems().clear();
+        if (!htmlEditor.getHtmlText().equals("")) {
+            databaseDictionary.deleteWord(word);
+            Tries.searchWord.remove(word);
+            Tries.deleteWordFromTries(word);
+            proposeWordList.getItems().remove(word);
+        }
     }
 }

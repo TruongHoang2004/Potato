@@ -2,6 +2,9 @@ package application.controller;
 
 import application.SceneManager;
 import javafx.event.ActionEvent;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 
 public class MenuController {
     SceneManager sceneManager = new SceneManager();
@@ -38,13 +41,4 @@ public class MenuController {
             throw new RuntimeException(e);
         }
     }
-
-    public void switchToEditor(ActionEvent event) {
-        try {
-            sceneManager.switchScene("editor", event);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }

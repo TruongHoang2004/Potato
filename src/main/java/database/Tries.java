@@ -44,7 +44,7 @@ public class Tries {
             if (crawl.children.containsKey(word.charAt(i))) {
                 crawl = crawl.children.get(word.charAt(i));
             } else {
-                return new ArrayList<String>();
+                return new ArrayList<>();
             }
         }
 
@@ -66,6 +66,23 @@ public class Tries {
     public static void insertAllWordsIntoTries(ArrayList<String> words) {
         for (String word : words) {
             insertWordIntoTries(word);
+        }
+    }
+
+    public static void deleteWordFromTries(String target) {
+        TrieNode crawl = root;
+        int length = target.length();
+        for (int i = 0; i < length - 1; ++i) {
+            if (crawl.children.containsKey(target.charAt(i))) {
+                crawl = crawl.children.get(target.charAt(i));
+            } else {
+                return;
+            }
+        }
+        if (crawl.children.get(target.charAt(length - 1)).children.isEmpty()) {
+            crawl.children.remove(target.charAt(length - 1));
+        } else{
+            crawl.children.get(target.charAt(length - 1)).isEndOfWord = false;
         }
     }
 

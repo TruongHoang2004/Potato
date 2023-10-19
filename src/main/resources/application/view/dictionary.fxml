@@ -28,7 +28,6 @@
                         <MenuItem mnemonicParsing="true" text="Content 1" />
                         <MenuItem mnemonicParsing="true" text="Content 2" />
                         <MenuItem mnemonicParsing="true" text="Content 3" />
-                        <MenuItem mnemonicParsing="true" text="Content 4" />
                      </items>
                   </ContextMenu>
                </contextMenu>
@@ -106,6 +105,6 @@
       </Pane>
       <Button layoutX="320.0" layoutY="56.0" mnemonicParsing="false" onAction="#switchToAddMode" prefHeight="38.0" prefWidth="143.0" text="Add" />
       <Button layoutX="487.0" layoutY="56.0" mnemonicParsing="false" onAction="#switchToEditMode" prefHeight="38.0" prefWidth="143.0" text="Edit" />
-      <Button layoutX="646.0" layoutY="56.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="143.0" text="Remove" />
+      <Button layoutX="646.0" layoutY="56.0" mnemonicParsing="false" onAction="#deleteWord" prefHeight="38.0" prefWidth="143.0" text="Remove" />
    </children>
 </AnchorPane>

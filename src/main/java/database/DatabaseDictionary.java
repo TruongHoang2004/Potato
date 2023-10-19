@@ -1,5 +1,9 @@
 package database;
 
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -159,6 +163,8 @@ public class DatabaseDictionary extends Dictionary {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
            ps.setString(1, target);
            ps.setString(2, explain);
+           ps.execute();
+           showEditResultDialog(target + " have been add to dictionary", "Add result");
            close(ps);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -172,6 +178,8 @@ public class DatabaseDictionary extends Dictionary {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
             ps.setString(1, explain);
             ps.setString(2, target);
+            ps.execute();
+            showEditResultDialog("Mean of " + target + " have been change", "Edit result");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -183,9 +191,21 @@ public class DatabaseDictionary extends Dictionary {
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
             ps.setString(1, target);
+            ps.execute();
             close(ps);
+            showEditResultDialog(target + " have been delete from dictionary", "Delete result");
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showEditResultDialog(String content, String tittle) {
+        ButtonType okButtonType = new ButtonType("Ok", ButtonBar.ButtonData.OK_DONE);
+        Dialog<String> dialog = new Dialog<>();
+        dialog.getDialogPane().getButtonTypes().add(okButtonType);
+        dialog.setTitle(tittle);
+        dialog.setContentText(content);
+        dialog.getDialogPane().lookupButton(okButtonType).setDisable(false);
+        dialog.show();
     }
 }
