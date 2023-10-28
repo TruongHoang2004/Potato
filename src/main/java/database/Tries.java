@@ -7,6 +7,7 @@ import java.util.TreeMap;
 public class Tries {
 
     public static final ArrayList<String> searchWord = new ArrayList<>();
+    public static final ArrayList<Word> words = new ArrayList<>();
     public static final TrieNode root = new TrieNode();
 
     public static ArrayList<String> getSearchWord() {
@@ -84,6 +85,27 @@ public class Tries {
         } else{
             crawl.children.get(target.charAt(length - 1)).isEndOfWord = false;
         }
+    }
+
+    public static String getDefinition(String word) {
+        int low = 0;
+        int high = words.size() - 1;
+
+       //Binary search
+        while (low <= high) {
+            int mid = low / 2 + high / 2;
+            if (words.get(mid).getWordTarget().compareTo(word) < 0) {
+                low = mid + 1;
+            } else if (words.get(mid).getWordTarget().compareTo(word) > 0) {
+                high = mid - 1;
+            } else {
+                System.out.println(words.get(mid).getWordExplain());
+                return words.get(mid).getWordExplain();
+            }
+            System.out.println(1);
+        }
+
+        return "000";
     }
 
     public static class TrieNode {

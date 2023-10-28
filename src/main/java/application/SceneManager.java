@@ -13,10 +13,7 @@ import java.util.Objects;
 public class SceneManager {
 
     private Stage stage;
-    private Stage popUpStage;
-
     private Scene scene;
-
     private Parent root;
 
     public void switchScene(String sceneName, ActionEvent event) throws Exception {
@@ -33,17 +30,4 @@ public class SceneManager {
         stage.setScene(scene);
         stage.show();
     }
-
-    public void popUp(String path, ActionEvent event) {
-        Popup popup = new Popup();
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-            Parent root = loader.load();
-            popup.getContent().add(root);
-            popup.show((Stage)((Node)event.getSource()).getScene().getWindow());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 }

@@ -28,26 +28,28 @@ public class DictionaryController extends MenuController implements Initializabl
     Pane editPane = new Pane();
     @FXML
     ListView<String> proposeWordList = new ListView<>();
+    String pickingWord;
 
     private WebEngine webEngine;
     private String mode = "search";
     public static DatabaseDictionary databaseDictionary = new DatabaseDictionary();
 
     public void searchBarAction() {
+        pickingWord = searchField.getText();
+
         if (mode.equals("search")) {
-            String word = searchField.getText();
-            String definition = databaseDictionary.lookUpWord(word);
+            String definition = Tries.getDefinition(pickingWord);
             webEngine.loadContent(definition);
-            proposeWordListAction(word);
-        } else if (mode.equals("edit")) {
-            String word = searchField.getText();
-            htmlEditor.setHtmlText(databaseDictionary.lookUpWord(word));
-            proposeWordListAction(word);
+            proposeWordListAction(pickingWord);
+        } else if (mode.equals("edit") || mode.equals("add")) {
+            htmlEditor.setHtmlText(Tries.getDefinition(pickingWord));
+            proposeWordListAction(pickingWord);
         }
     }
 
     private void proposeWordListAction(String word) {
-        proposeWordList.scrollTo(word);
+        proposeWordList.getItems().clear();
+        proposeWordList.getItems().addAll(Tries.getWordSub(word));
     }
 
     @Override
@@ -57,9 +59,8 @@ public class DictionaryController extends MenuController implements Initializabl
         proposeWordList.getItems().addAll(databaseDictionary.getAllWordsTarget());
 
         proposeWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            String word = newValue;
-            searchField.setText(word);
-            searchBarAction();
+            pickingWord = newValue;
+            webEngine.loadContent(Tries.getDefinition(newValue));
         });
     }
 
@@ -71,6 +72,7 @@ public class DictionaryController extends MenuController implements Initializabl
         mode = "add";
         webView.setVisible(false);
         editPane.setVisible(true);
+        searchBarAction();
     }
 
     public void switchToEditMode() {
@@ -78,7 +80,6 @@ public class DictionaryController extends MenuController implements Initializabl
         webView.setVisible(false);
         editPane.setVisible(true);
         searchBarAction();
-
     }
 
     public void switchToSearch() {
@@ -102,13 +103,11 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void deleteWord() {
-        String word = searchField.getText();
-
         if (!htmlEditor.getHtmlText().equals("")) {
-            databaseDictionary.deleteWord(word);
-            Tries.searchWord.remove(word);
-            Tries.deleteWordFromTries(word);
-            proposeWordList.getItems().remove(word);
+            databaseDictionary.deleteWord(pickingWord);
+            Tries.searchWord.remove(pickingWord);
+            Tries.deleteWordFromTries(pickingWord);
+            proposeWordList.getItems().remove(pickingWord);
         }
     }
 }

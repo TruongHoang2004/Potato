@@ -18,7 +18,7 @@
    <children>
       <Pane layoutX="120.0" layoutY="118.0" prefHeight="462.0" prefWidth="670.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="118.0">
          <children>
-            <TextField fx:id="searchField" layoutX="20.0" layoutY="14.0" onKeyTyped="#searchBarAction" prefHeight="52.0" prefWidth="176.0">
+            <TextField fx:id="searchField" layoutX="20.0" layoutY="14.0" onKeyTyped="#searchBarAction" prefHeight="52.0" prefWidth="176.0" styleClass="searchField" stylesheets="@../style/Style.css">
                <font>
                   <Font size="18.0" />
                </font>

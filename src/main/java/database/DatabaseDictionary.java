@@ -86,7 +86,7 @@ public class DatabaseDictionary extends Dictionary {
                 try {
                     ArrayList<Word> words = new ArrayList<>();
                     while (rs.next()) {
-                        words.add(new Word(rs.getString(1), rs.getString(2)));
+                        words.add(new Word(rs.getString(2), rs.getString(3)));
                     }
                     return words;
                 } finally {
@@ -208,4 +208,6 @@ public class DatabaseDictionary extends Dictionary {
         dialog.getDialogPane().lookupButton(okButtonType).setDisable(false);
         dialog.show();
     }
+
+
 }

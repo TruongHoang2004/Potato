@@ -24,62 +24,26 @@
 
 /* Dictionary FXML css */
 
-#searchField {
+.searchField {
     -fx-background-color: #e2e4e8;
     -fx-background-radius: 5;
-    -fx-effect: dropshadow(three-pass-box, #b0d4b8, 10, 0.5, 0, 0);
+    -fx-effect: dropshadow(gaussian, #b0d4b8, 20, 0.6, 0, 0);
 }
 
-#searchField:focused {
+.searchField:focused {
     -fx-border-width: 1;
     -fx-border-radius: 5;
     -fx-border-color: #0093EF;
 }
 
-#searchField:hover {
+.searchField:hover {
     -fx-border-width: 1;
     -fx-border-radius: 5;
     -fx-border-color: #0093EF;
 }
 
-#recommendedArea {
+.ListView {
     -fx-background-color: #e2e4e8;
     -fx-background-radius: 5;
-}
-
-#recommendedArea .content{
-    -fx-background-color: #e2e4e8;
-    -fx-background-radius: 5;
-}
-
-#recommendedArea:hover .content{
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-border-color: #0093EF;
-}
-
-#recommendedArea:focused .content{
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-border-color: #0093EF;
-}
-
-#resultArea {
-    -fx-background-color: #e2e4e8;
-    -fx-background-radius: 5;
-}
-
-#resultArea {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 5;
-}
-
-#resultArea .content{
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 5;
-}
-
-#resultAnchorPane {
-    -fx-background-color: #ffffff;
-    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, #b0d4b8, 20, 0.6, 0, 0);
 }

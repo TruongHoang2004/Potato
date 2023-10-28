@@ -20,4 +20,12 @@ public class Word {
     public void setWordExplain(String wordExplain) {
         this.wordExplain = wordExplain;
     }
+
+    @Override
+    public String toString() {
+        return "Word{" +
+               "wordTarget='" + wordTarget + '\'' +
+               ", wordExplain='" + wordExplain + '\'' +
+               '}';
+    }
 }

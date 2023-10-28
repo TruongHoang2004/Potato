@@ -10,13 +10,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import static database.Tries.words;
+
 public class Main extends Application {
 
     public static void initialize() {
         try {
+            System.out.println("Initialize application...");
             DictionaryController.databaseDictionary.initialize();
             Tries.searchWord.addAll(DictionaryController.databaseDictionary.getAllWordsTarget());
             Tries.insertAllWordsIntoTries(Tries.searchWord);
+            words.addAll(DictionaryController.databaseDictionary.getAllWords());
+            System.out.println("Initialize application successfully!");
         } catch (SQLException e) {
             e.printStackTrace();
         }

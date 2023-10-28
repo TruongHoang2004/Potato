@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
-public class TranslateController extends MenuController{
+public class TranslateController extends MenuController implements Runnable {
     @FXML
     private TextArea inputTextArea = new TextArea();
     @FXML
@@ -14,6 +14,7 @@ public class TranslateController extends MenuController{
     private Label upperLabel = new Label("English");
     @FXML
     private Label bottomLabel = new Label("Vietnamese");
+    private Thread translate;
 
     private int mode = 0;
 
@@ -35,14 +36,17 @@ public class TranslateController extends MenuController{
     }
 
     public void translate() {
+        translate = new Thread(this);
+        translate.start();
+    }
+
+    @Override
+    public void run() {
         String input = inputTextArea.getText();
-        String output;
         if (mode == 0) {
-            output = TranslatorAPI.translateEnToVi(input);
+            outputTextArea.setText(TranslatorAPI.translateEnToVi(input));
+        } else {
+            outputTextArea.setText(TranslatorAPI.translateViToEn(input));
         }
-        else {
-            output = TranslatorAPI.translateViToEn(input);
-        }
-        outputTextArea.setText(output);
     }
 }
