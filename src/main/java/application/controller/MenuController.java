@@ -2,12 +2,9 @@ package application.controller;
 
 import application.SceneManager;
 import javafx.event.ActionEvent;
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
 
 public class MenuController {
-    SceneManager sceneManager = new SceneManager();
+    private final SceneManager sceneManager = new SceneManager();
 
     public void switchToDictionary(ActionEvent event) {
         try {
@@ -29,6 +26,14 @@ public class MenuController {
     public void switchToGameMenu(ActionEvent event) {
         try {
             sceneManager.switchScene("gameMenu", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void switchToHangManGame(ActionEvent event) {
+        try {
+            sceneManager.switchScene("hangmanGame", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

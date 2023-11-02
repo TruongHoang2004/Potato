@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -22,19 +20,10 @@
                <font>
                   <Font size="18.0" />
                </font>
-               <contextMenu>
-                  <ContextMenu fx:id="contextMenu">
-                     <items>
-                        <MenuItem mnemonicParsing="true" text="Content 1" />
-                        <MenuItem mnemonicParsing="true" text="Content 2" />
-                        <MenuItem mnemonicParsing="true" text="Content 3" />
-                     </items>
-                  </ContextMenu>
-               </contextMenu>
             </TextField>
             <ImageView fitHeight="25.0" fitWidth="25.0" layoutX="164.0" layoutY="28.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/Search.png" />
+                  <Image url="@../image/icon/Search.png" />
                </image>
             </ImageView>
             <WebView fx:id="webView" layoutX="210.0" layoutY="14.0" prefHeight="455.0" prefWidth="445.0" />
@@ -46,7 +35,7 @@
                </children>
             </Pane>
             <ListView fx:id="proposeWordList" layoutX="20.0" layoutY="72.0" prefHeight="182.0" prefWidth="176.0" />
-            <ListView fx:id="proposeWordList1" layoutX="20.0" layoutY="266.0" prefHeight="182.0" prefWidth="176.0" />
+            <ListView fx:id="historyWordList" layoutX="20.0" layoutY="266.0" prefHeight="182.0" prefWidth="176.0" />
          </children>
       </Pane>
       <Pane layoutX="24.0" layoutY="32.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
@@ -57,7 +46,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -76,7 +65,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -89,7 +78,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -98,7 +87,7 @@
             </VBox>
             <ImageView fitHeight="92.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/icon.png" />
+                  <Image url="@../image/icon/icon.png" />
                </image>
             </ImageView>
          </children>

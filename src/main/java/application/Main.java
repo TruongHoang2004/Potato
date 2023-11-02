@@ -30,13 +30,13 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         initialize();
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/menu.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         String css = this.getClass().getResource("style/Style.css").toExternalForm();
         scene.getStylesheets().add(css);
 
 
-        String icon = this.getClass().getResource("image/icon.png").toExternalForm();
+        String icon = this.getClass().getResource("image/icon/icon.png").toExternalForm();
 
         boolean added = stage.getIcons().add(new Image(icon));
         stage.setTitle("Potato");

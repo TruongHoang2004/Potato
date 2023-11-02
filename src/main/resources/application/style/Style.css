@@ -17,6 +17,27 @@
     -fx-background-radius: 25;
 }
 
+.gameButton.button {
+    -fx-background-color: #b0d4b8;
+    -fx-background-radius: 25;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.gameButton.button:hover {
+    -fx-background-color: #eae7d6;
+    -fx-background-radius: 25;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.gameButton.button:pressed {
+    -fx-background-color: #fdf5f3;
+    -fx-background-radius: 25;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
 .pane {
     -fx-background-color : #b0d4b8;
     -fx-background-radius: 20;

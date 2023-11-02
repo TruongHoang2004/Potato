@@ -11,7 +11,6 @@ import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 
-import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.util.Collections;
 import java.util.ResourceBundle;
@@ -28,6 +27,9 @@ public class DictionaryController extends MenuController implements Initializabl
     Pane editPane = new Pane();
     @FXML
     ListView<String> proposeWordList = new ListView<>();
+    @FXML
+    ListView<String> historyWordList = new ListView<>();
+
     String pickingWord;
 
     private WebEngine webEngine;
@@ -38,11 +40,11 @@ public class DictionaryController extends MenuController implements Initializabl
         pickingWord = searchField.getText();
 
         if (mode.equals("search")) {
-            String definition = Tries.getDefinition(pickingWord);
+            String definition = databaseDictionary.lookUpWord(pickingWord);
             webEngine.loadContent(definition);
             proposeWordListAction(pickingWord);
         } else if (mode.equals("edit") || mode.equals("add")) {
-            htmlEditor.setHtmlText(Tries.getDefinition(pickingWord));
+            htmlEditor.setHtmlText(databaseDictionary.lookUpWord(pickingWord));
             proposeWordListAction(pickingWord);
         }
     }
@@ -60,7 +62,13 @@ public class DictionaryController extends MenuController implements Initializabl
 
         proposeWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             pickingWord = newValue;
-            webEngine.loadContent(Tries.getDefinition(newValue));
+            webEngine.loadContent(databaseDictionary.lookUpWord(pickingWord));
+            historyWordList.getItems().add(0, pickingWord);
+        });
+
+        historyWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            pickingWord = newValue;
+            webEngine.loadContent(databaseDictionary.lookUpWord(pickingWord));
         });
     }
 
@@ -103,7 +111,7 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void deleteWord() {
-        if (!htmlEditor.getHtmlText().equals("")) {
+        if (!htmlEditor.getHtmlText().isEmpty()) {
             databaseDictionary.deleteWord(pickingWord);
             Tries.searchWord.remove(pickingWord);
             Tries.deleteWordFromTries(pickingWord);

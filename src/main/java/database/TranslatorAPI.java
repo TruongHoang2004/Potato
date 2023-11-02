@@ -1,6 +1,6 @@
 package database;
 
-import application.controller.TranslateController;
+import javafx.concurrent.Task;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,54 +10,25 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
-public class TranslatorAPI {
+public class TranslatorAPI extends Task<String> {
 
-    private String mode;
-    private String word;
-    private String result;
-
-    /**
-     * Translate English text `text` into Vietnamese.
-     *
-     * @param text the text to be translated
-     * @return the Vietnamese translation, or "500" if got errors
-     */
-    public static String translateEnToVi(String text) {
-        try {
-            return translate("en", "vi", text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "500";
+    public TranslatorAPI(String langFrom, String langTo, String text) {
+        this.langFrom = langFrom;
+        this.langTo = langTo;
+        this.text = text;
     }
 
-    /**
-     * Translate Vietnamese text `text` into English.
-     *
-     * @param text the text to be translated
-     * @return the English translation, or "500" if got errors
-     */
-    public static String translateViToEn(String text) {
-        try {
-            return translate("vi", "en", text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return "500";
-    }
+    private final String langFrom;
+    private final String langTo;
+    private final String text;
 
     /**
      * Translate text from `langFrom` to `langTo`.
      *
      * <p><a
      * href="https://stackoverflow.com/questions/8147284/how-to-use-google-translate-api-in-my-java-application">Reference</a>
-     *
-     * @param langFrom the input language (2 letters (ex: 'en'))
-     * @param langTo the output language (2 letters (ex: 'vi'))
-     * @param text the text to be translated
-     * @return the translation text in `langTo`
      */
-    private static String translate(String langFrom, String langTo, String text)
+    public String translate()
             throws IOException {
         String urlStr =
                 "https://script.google.com/macros/s/AKfycby3AOWmhe32TgV9nW-Q0TyGOEyCHQeFiIn7hRgy5m8jHPaXDl2GdToyW_3Ys5MTbK6wjg/exec"
@@ -80,5 +51,10 @@ public class TranslatorAPI {
         }
         in.close();
         return response.toString();
+    }
+
+    @Override
+    protected String call() throws Exception {
+        return translate();
     }
 }

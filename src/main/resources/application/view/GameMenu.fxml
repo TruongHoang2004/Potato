@@ -18,7 +18,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -37,7 +37,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -50,7 +50,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/Learning.png" />
+                              <Image url="@../image/icon/Learning.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -59,10 +59,15 @@
             </VBox>
             <ImageView fitHeight="92.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../image/icon.png" />
+                  <Image url="@../image/icon/icon.png" />
                </image>
             </ImageView>
          </children>
       </Pane>
+      <Button layoutX="152.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="150.0" prefWidth="166.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Hangman">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
     </children>
 </AnchorPane>

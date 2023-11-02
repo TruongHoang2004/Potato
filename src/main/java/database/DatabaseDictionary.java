@@ -76,7 +76,6 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public ArrayList<Word> getAllWords() {
-        ArrayList<Word> allWords = new ArrayList<>();
 
         final String SQL_QUERY = "SELECT * FROM dictionary";
         try {
@@ -104,7 +103,6 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public ArrayList<String> getAllWordsTarget() {
-        ArrayList<String> allTargetWord = new ArrayList<>();
 
         final String SQL_QUERY = "SELECT target FROM dictionary";
         try {
