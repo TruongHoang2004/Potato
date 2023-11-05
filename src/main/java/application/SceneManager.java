@@ -5,29 +5,58 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.stage.Popup;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class SceneManager {
 
     private Stage stage;
     private Scene scene;
-    private Parent root;
+    private static final List<Scene> sceneList = new ArrayList<>();
 
-    public void switchScene(String sceneName, ActionEvent event) throws Exception {
+    public void loadAll() {
+        try {
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/Menu.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/Dictionary.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/Translator.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/GameMenu.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/HangmanGame.fxml")))));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-        String path = "view/" + sceneName + ".fxml";
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(path));
-        root = loader.load();
+    public void switchScene(SceneName name, ActionEvent event) throws Exception {
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
+        scene = sceneList.get(name.getIndex());
         String css = Objects.requireNonNull(this.getClass().getResource("style/Style.css")).toExternalForm();
         scene.getStylesheets().add(css);
 
         stage.setScene(scene);
         stage.show();
     }
+
+    public enum SceneName {
+
+        MENU(0),
+        DICTIONARY(1),
+        TRANSLATOR(2),
+        GAME_MENU(3),
+        HANGMAN_GAME(4);
+        private final int index;
+
+        SceneName(int index) {
+            this.index = index;
+        }
+
+        public int getIndex() {
+            return index;
+        }
+    }
 }
+
+

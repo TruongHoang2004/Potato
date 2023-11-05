@@ -14,6 +14,8 @@ public class TranslateController extends MenuController {
     private Label upperLabel = new Label("English");
     @FXML
     private Label bottomLabel = new Label("Vietnamese");
+    @FXML
+    private Label translatingLabel = new Label("Translating...");
 
     private int mode = 0;
 
@@ -32,6 +34,10 @@ public class TranslateController extends MenuController {
             upperLabel.setText("English");
             bottomLabel.setText("Vietnamese");
         }
+
+        String swap = inputTextArea.getText();
+        inputTextArea.setText(outputTextArea.getText());
+        outputTextArea.setText(swap);
     }
 
     public void translate() {
@@ -44,7 +50,11 @@ public class TranslateController extends MenuController {
         } else {
             task = new TranslatorAPI("vi", "en", input);
         }
-        task.setOnSucceeded(event -> outputTextArea.setText(task.getValue()));
+        task.setOnSucceeded(event -> {
+            outputTextArea.setText(task.getValue());
+            translatingLabel.setVisible(false);
+        });
+        task.setOnRunning(event -> translatingLabel.setVisible(true));
         new Thread(task).start();
 
     }

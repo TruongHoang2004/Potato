@@ -29,7 +29,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        SceneManager sceneManager = new SceneManager();
         initialize();
+        sceneManager.loadAll();
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         String css = this.getClass().getResource("style/Style.css").toExternalForm();

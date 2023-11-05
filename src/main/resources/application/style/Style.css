@@ -2,6 +2,7 @@
     -fx-background-color: #fdf5f3;
 }
 
+/* Button FXML css */
 .button {
     -fx-background-color: #b0d4b8;
     -fx-background-radius: 25;
@@ -18,7 +19,7 @@
 }
 
 .gameButton.button {
-    -fx-background-color: #b0d4b8;
+    -fx-background-color: #fca2d1;
     -fx-background-radius: 25;
     -fx-font-size: 20;
     -fx-font-weight: bold;
@@ -32,7 +33,7 @@
 }
 
 .gameButton.button:pressed {
-    -fx-background-color: #fdf5f3;
+    -fx-background-color: #c588ea;
     -fx-background-radius: 25;
     -fx-font-size: 20;
     -fx-font-weight: bold;

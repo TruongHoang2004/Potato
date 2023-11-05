@@ -14,7 +14,7 @@
          <children>
             <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToLearning" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +46,7 @@
             </VBox>
             <VBox layoutY="315.0" prefHeight="70.0" prefWidth="90.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#back" prefHeight="70.0" prefWidth="90.0" text="Game">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -64,9 +64,9 @@
             </ImageView>
          </children>
       </Pane>
-      <Button layoutX="152.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="150.0" prefWidth="166.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Hangman">
+      <Button layoutX="152.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="150.0" prefWidth="166.0" stylesheets="@../style/Style.css" text="Hangman">
          <font>
-            <Font size="25.0" />
+            <Font name="System Bold" size="25.0" />
          </font>
       </Button>
     </children>

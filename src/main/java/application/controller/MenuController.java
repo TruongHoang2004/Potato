@@ -4,20 +4,20 @@ import application.SceneManager;
 import javafx.event.ActionEvent;
 
 public class MenuController {
-    private final SceneManager sceneManager = new SceneManager();
+    private static final SceneManager sceneManager = new SceneManager();
 
     public void switchToDictionary(ActionEvent event) {
         try {
-            sceneManager.switchScene("dictionary", event);
+            sceneManager.switchScene(SceneManager.SceneName.DICTIONARY, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
     }
 
-    public void switchToLearning(ActionEvent event) {
+    public void switchToTranslator(ActionEvent event) {
         try {
-            sceneManager.switchScene("translate", event);
+            sceneManager.switchScene(SceneManager.SceneName.TRANSLATOR, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -25,7 +25,7 @@ public class MenuController {
 
     public void switchToGameMenu(ActionEvent event) {
         try {
-            sceneManager.switchScene("gameMenu", event);
+            sceneManager.switchScene(SceneManager.SceneName.GAME_MENU, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -33,15 +33,15 @@ public class MenuController {
 
     public void switchToHangManGame(ActionEvent event) {
         try {
-            sceneManager.switchScene("hangmanGame", event);
+            sceneManager.switchScene(SceneManager.SceneName.HANGMAN_GAME, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void back(ActionEvent event) {
+    public void switchToMenu(ActionEvent event) {
         try {
-            new SceneManager().switchScene("menu", event);
+            new SceneManager().switchScene(SceneManager.SceneName.MENU, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

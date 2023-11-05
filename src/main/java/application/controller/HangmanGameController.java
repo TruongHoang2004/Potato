@@ -1,5 +1,6 @@
 package application.controller;
 
+import database.TranslatorAPI;
 import database.Tries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,6 +20,8 @@ public class HangmanGameController extends GameMenuController implements Initial
     private int numOfFalse = 0;
     @FXML
     private HBox crossWord = new HBox(10);
+    @FXML
+    Label resultLabel = new Label("You win");
     private String answer;
 
     public void action(ActionEvent event) {
@@ -32,7 +35,7 @@ public class HangmanGameController extends GameMenuController implements Initial
         this.answer = getRandomWord();
         for (int i = 0; i < this.answer.length(); i++) {
             Label letter = new Label("_");
-            letter.setPrefWidth(20);
+            letter.setPrefWidth(30);
             letter.setFont(Font.font("System", FontWeight.BOLD, 30));
             this.crossWord.getChildren().add(letter);
         }
@@ -61,10 +64,20 @@ public class HangmanGameController extends GameMenuController implements Initial
             System.out.println("false " + letter);
         }
         if (this.numOfFalse == 6) {
+            resultLabel.setText("You lose");
         }
 
         if (this.crossWord.getChildren().stream().noneMatch(node -> ((Label) node).getText().equals("_"))) {
 
+            resultLabel.setText("You win");
+            TranslatorAPI task = new TranslatorAPI("en", "vi", this.answer);
+            task.setOnSucceeded(event -> {
+                System.out.println(this.answer + " : " + task.getValue());
+            });
+            task.setOnRunning(event -> {
+                System.out.println("translating");
+            });
+            new Thread(task).start();
         }
     }
 }

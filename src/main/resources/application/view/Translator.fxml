@@ -17,7 +17,7 @@
          <children>
             <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#back" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Translate">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -99,7 +99,7 @@
                   </HBox>
                   <TextArea fx:id="outputTextArea" prefHeight="214.0" prefWidth="678.0">
                      <font>
-                        <Font size="24.0" />
+                        <Font name="Times New Roman" size="24.0" />
                      </font></TextArea>
                </children>
             </VBox>
@@ -125,7 +125,11 @@
                   </Button>
                </children>
             </HBox>
-            <HBox layoutY="250.0" prefHeight="60.0" prefWidth="200.0" />
+            <Label fx:id="translatingLabel" layoutX="14.0" layoutY="268.0" prefHeight="28.0" prefWidth="142.0" text="Translating..." visible="false">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
     </children>
