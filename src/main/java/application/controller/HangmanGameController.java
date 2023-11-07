@@ -1,11 +1,14 @@
 package application.controller;
 
+import application.SceneManager;
 import database.TranslatorAPI;
 import database.Tries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
@@ -17,17 +20,22 @@ import java.util.ResourceBundle;
 
 public class HangmanGameController extends GameMenuController implements Initializable {
 
-    private int numOfFalse = 0;
     @FXML
     private HBox crossWord = new HBox(10);
     @FXML
     Label resultLabel = new Label("You win");
+    @FXML
+    Button restartButton = new Button();
     private String answer;
+    private int numOfFalse = 0;
+    private String gameStatus = "playing";
 
     public void action(ActionEvent event) {
-        Button button = (Button) event.getSource();
-        button.setVisible(false);
-        check(button.getText().toLowerCase());
+        if (gameStatus.equals("playing")) {
+            Button button = (Button) event.getSource();
+            button.setVisible(false);
+            check(button.getText().toLowerCase());
+        }
     }
 
     @Override
@@ -64,20 +72,62 @@ public class HangmanGameController extends GameMenuController implements Initial
             System.out.println("false " + letter);
         }
         if (this.numOfFalse == 6) {
-            resultLabel.setText("You lose");
+            Dialog dialog = new Dialog();
+            dialog.setTitle("You lose");
+            dialog.setContentText("The answer is " + this.answer + "\nDo you want to restart?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.YES)) {
+                restartButton.fire();
+            } else {
+                gameStatus = "breaking";
+            }
         }
 
         if (this.crossWord.getChildren().stream().noneMatch(node -> ((Label) node).getText().equals("_"))) {
 
-            resultLabel.setText("You win");
-            TranslatorAPI task = new TranslatorAPI("en", "vi", this.answer);
-            task.setOnSucceeded(event -> {
-                System.out.println(this.answer + " : " + task.getValue());
-            });
-            task.setOnRunning(event -> {
-                System.out.println("translating");
-            });
-            new Thread(task).start();
+            Dialog dialog = new Dialog();
+            dialog.setTitle("You win");
+            dialog.setContentText("Do you want to restart?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.YES)) {
+                restartButton.fire();
+            } else {
+                gameStatus = "breaking";
+            }
+        }
+    }
+
+    public void restart(ActionEvent event) {
+
+        if (gameStatus.equals("playing")) {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Restart");
+            dialog.setContentText("Are you sure you want to restart?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.YES)) {
+                SceneManager sceneManager = new SceneManager();
+                sceneManager.loadGame(SceneManager.SceneName.HANGMAN_GAME, "view/HangmanGame.fxml", event);
+            }
+        } else {
+            SceneManager sceneManager = new SceneManager();
+            sceneManager.loadGame(SceneManager.SceneName.HANGMAN_GAME, "view/HangmanGame.fxml", event);
+        }
+    }
+
+    public void switchToGameMenu(ActionEvent event) {
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Back to game menu");
+        dialog.setContentText("Are you sure you want to back to game menu?");
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+        if (dialog.showAndWait().get().equals(ButtonType.NO)) {
+            return;
+        }
+
+        try {
+            new SceneManager().switchScene(SceneManager.SceneName.GAME_MENU, event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 }

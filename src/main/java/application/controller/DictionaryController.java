@@ -4,6 +4,8 @@ import database.DatabaseDictionary;
 import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -63,7 +65,12 @@ public class DictionaryController extends MenuController implements Initializabl
         proposeWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             pickingWord = newValue;
             webEngine.loadContent(databaseDictionary.lookUpWord(pickingWord));
-            historyWordList.getItems().add(0, pickingWord);
+            if (pickingWord != null ) {
+                if (historyWordList.getItems().contains(pickingWord)) {
+                    historyWordList.getItems().remove(pickingWord);
+                }
+                historyWordList.getItems().add(0, pickingWord);
+            }
         });
 
         historyWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -100,18 +107,41 @@ public class DictionaryController extends MenuController implements Initializabl
         String word = searchField.getText();
 
         if (mode.equals("add")) {
-            databaseDictionary.addWord(word, htmlEditor.getHtmlText());
-            Tries.searchWord.add(word);
-            Tries.insertWordIntoTries(word);
-            proposeWordList.getItems().add(word);
-            Collections.sort(proposeWordList.getItems());
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Add word");
+            dialog.setContentText("Are you sure you want to add this word?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                databaseDictionary.addWord(word, htmlEditor.getHtmlText());
+                Tries.searchWord.add(word);
+                Tries.insertWordIntoTries(word);
+                proposeWordList.getItems().add(word);
+                Collections.sort(proposeWordList.getItems());
+            }
         } else if (mode.equals("edit")) {
-            databaseDictionary.editWord(word, htmlEditor.getHtmlText());
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Edit word");
+            dialog.setContentText("Are you sure you want to edit this word?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                databaseDictionary.editWord(word, htmlEditor.getHtmlText());
+                Tries.searchWord.remove(pickingWord);
+                Tries.deleteWordFromTries(pickingWord);
+                Tries.searchWord.add(word);
+                Tries.insertWordIntoTries(word);
+                proposeWordList.getItems().remove(pickingWord);
+                proposeWordList.getItems().add(word);
+                Collections.sort(proposeWordList.getItems());
+            }
         }
     }
 
     public void deleteWord() {
-        if (!htmlEditor.getHtmlText().isEmpty()) {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Delete word");
+        dialog.setContentText("Are you sure you want to delete this word?");
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+        if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
             databaseDictionary.deleteWord(pickingWord);
             Tries.searchWord.remove(pickingWord);
             Tries.deleteWordFromTries(pickingWord);

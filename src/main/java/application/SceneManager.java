@@ -3,19 +3,30 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 public class SceneManager {
 
-    private Stage stage;
-    private Scene scene;
+    private static Stage stage;
+    private static Scene scene;
     private static final List<Scene> sceneList = new ArrayList<>();
+
+    public void loadGame(SceneName name, String path, ActionEvent event) {
+        try {
+            sceneList.set(name.getIndex(), new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource(path)))));
+            switchScene(name, event);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public void loadAll() {
         try {
