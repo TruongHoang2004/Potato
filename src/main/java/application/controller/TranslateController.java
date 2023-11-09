@@ -1,9 +1,11 @@
 package application.controller;
 
+import database.TextToSpeech;
 import database.TranslatorAPI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+
 
 public class TranslateController extends MenuController {
     @FXML
@@ -50,12 +52,13 @@ public class TranslateController extends MenuController {
         } else {
             task = new TranslatorAPI("vi", "en", input);
         }
-        task.setOnSucceeded(event -> {
-            outputTextArea.setText(task.getValue());
-            translatingLabel.setVisible(false);
-        });
+
         task.setOnRunning(event -> translatingLabel.setVisible(true));
         new Thread(task).start();
+    }
 
+    public void playSound() {
+        TextToSpeech task = new TextToSpeech(inputTextArea.getText(), "en");
+        new Thread(task).start();
     }
 }
