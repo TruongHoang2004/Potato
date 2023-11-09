@@ -9,6 +9,7 @@ module application {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires jlayer;
 
     exports application;
 
