@@ -4,10 +4,7 @@ import database.DatabaseDictionary;
 import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
@@ -31,6 +28,8 @@ public class DictionaryController extends MenuController implements Initializabl
     ListView<String> proposeWordList = new ListView<>();
     @FXML
     ListView<String> historyWordList = new ListView<>();
+    @FXML
+    private Label modeLabel = new Label();
 
     String pickingWord;
 
@@ -58,6 +57,7 @@ public class DictionaryController extends MenuController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        modeLabel.setText("Meaning:");
         webEngine = webView.getEngine();
         loadPage();
         proposeWordList.getItems().addAll(databaseDictionary.getAllWordsTarget());
@@ -85,6 +85,7 @@ public class DictionaryController extends MenuController implements Initializabl
 
     public void switchToAddMode() {
         mode = "add";
+        modeLabel.setText("Adding");
         webView.setVisible(false);
         editPane.setVisible(true);
         searchBarAction();
@@ -92,6 +93,7 @@ public class DictionaryController extends MenuController implements Initializabl
 
     public void switchToEditMode() {
         mode = "edit";
+        modeLabel.setText("Editing");
         webView.setVisible(false);
         editPane.setVisible(true);
         searchBarAction();
@@ -99,6 +101,7 @@ public class DictionaryController extends MenuController implements Initializabl
 
     public void switchToSearch() {
         mode = "search";
+        modeLabel.setText("Meaning:");
         webView.setVisible(true);
         editPane.setVisible(false);
     }
@@ -137,6 +140,7 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void deleteWord() {
+        modeLabel.setText("Deleting");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Delete word");
         dialog.setContentText("Are you sure you want to delete this word?");
