@@ -73,7 +73,7 @@
                <children>
                   <HBox prefHeight="37.0" prefWidth="678.0">
                      <children>
-                        <Label fx:id="upperLabel" text="English">
+                        <Label fx:id="upperLabel" prefHeight="40.0" prefWidth="130.0" text="English">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -90,7 +90,7 @@
                <children>
                   <HBox prefHeight="37.0" prefWidth="678.0">
                      <children>
-                        <Label fx:id="bottomLabel" text="Vietnamese">
+                        <Label fx:id="bottomLabel" prefHeight="40.0" prefWidth="130.0" text="Vietnamese">
                            <font>
                               <Font size="24.0" />
                            </font>
@@ -103,22 +103,29 @@
                      </font></TextArea>
                </children>
             </VBox>
-            <HBox alignment="CENTER" layoutX="494.0" layoutY="250.0" prefHeight="60.0" prefWidth="189.0">
+            <HBox alignment="CENTER" layoutX="446.0" layoutY="250.0" prefHeight="60.0" prefWidth="189.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#translate" prefHeight="40.0" prefWidth="110.0" text="Translate">
+                  <Button mnemonicParsing="false" onAction="#translate" prefHeight="46.0" prefWidth="149.0" text="Translate">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/translate.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </Button>
                </children>
             </HBox>
-            <HBox alignment="CENTER" layoutX="362.0" layoutY="250.0" prefHeight="60.0" prefWidth="132.0">
+            <HBox alignment="CENTER" layoutX="253.0" layoutY="250.0" prefHeight="60.0" prefWidth="132.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/alter-icon-light.png" />
+                              <Image url="@../image/icon/swap.png" />
                            </image>
                         </ImageView>
                      </graphic>
