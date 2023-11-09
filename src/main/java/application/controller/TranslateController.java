@@ -53,12 +53,36 @@ public class TranslateController extends MenuController {
             task = new TranslatorAPI("vi", "en", input);
         }
 
+        task.setOnSucceeded(event -> {
+            outputTextArea.setText(task.getValue());
+            translatingLabel.setVisible(false);
+        });
+
         task.setOnRunning(event -> translatingLabel.setVisible(true));
         new Thread(task).start();
     }
 
-    public void playSound() {
-        TextToSpeech task = new TextToSpeech(inputTextArea.getText(), "en");
+    public void playSound1() {
+
+        TextToSpeech task;
+        if (mode == 0) {
+            task = new TextToSpeech(inputTextArea.getText(), "en");
+            new Thread(task).start();
+        } else {
+            task = new TextToSpeech(inputTextArea.getText(), "vi");
+            new Thread(task).start();
+        }
         new Thread(task).start();
+    }
+
+    public void playSound2() {
+        TextToSpeech task;
+        if (mode == 0) {
+            task = new TextToSpeech(outputTextArea.getText(), "vi");
+            new Thread(task).start();
+        } else {
+            task = new TextToSpeech(outputTextArea.getText(), "en");
+            new Thread(task).start();
+        }
     }
 }

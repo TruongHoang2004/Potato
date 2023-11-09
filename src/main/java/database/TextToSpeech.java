@@ -39,7 +39,6 @@ public class TextToSpeech extends Task<Void> {
 
     @Override
     protected Void call() throws Exception {
-        System.out.println("Lol");
         playGoogleTranslateSound();
         return null;
     }

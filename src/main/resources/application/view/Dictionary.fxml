@@ -17,7 +17,7 @@
    <children>
       <Pane layoutX="120.0" layoutY="20.0" prefHeight="560.0" prefWidth="670.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Label fx:id="modeLabel" layoutX="210.0" layoutY="15.0" prefHeight="52.0" prefWidth="445.0" text="  Nghĩa của từ:">
+            <Label fx:id="modeLabel" layoutX="210.0" layoutY="15.0" prefHeight="52.0" prefWidth="176.0" text="Meaning:">
                <font>
                   <Font name="Verdana" size="22.0" />
                </font>
@@ -80,6 +80,11 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <Button layoutX="459.0" layoutY="21.0" mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Pane layoutX="24.0" layoutY="32.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">

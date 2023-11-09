@@ -78,6 +78,11 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
+                        <Button mnemonicParsing="false" onAction="#playSound1" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                   <TextArea fx:id="inputTextArea" prefHeight="213.0" prefWidth="680.0">
@@ -95,6 +100,11 @@
                               <Font size="24.0" />
                            </font>
                         </Label>
+                        <Button mnemonicParsing="false" onAction="#playSound2" prefHeight="40.0" prefWidth="50.0">
+                           <graphic>
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
+                        </Button>
                      </children>
                   </HBox>
                   <TextArea fx:id="outputTextArea" prefHeight="214.0" prefWidth="678.0">
@@ -103,8 +113,17 @@
                      </font></TextArea>
                </children>
             </VBox>
-            <HBox alignment="CENTER" layoutX="446.0" layoutY="250.0" prefHeight="60.0" prefWidth="189.0">
+            <HBox alignment="CENTER" layoutX="403.0" layoutY="250.0" prefHeight="60.0" prefWidth="233.0" spacing="20.0">
                <children>
+                  <Button mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/swap.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Button mnemonicParsing="false" onAction="#translate" prefHeight="46.0" prefWidth="149.0" text="Translate">
                      <font>
                         <Font size="18.0" />
@@ -113,19 +132,6 @@
                         <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../image/icon/translate.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER" layoutX="253.0" layoutY="250.0" prefHeight="60.0" prefWidth="132.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/swap.png" />
                            </image>
                         </ImageView>
                      </graphic>

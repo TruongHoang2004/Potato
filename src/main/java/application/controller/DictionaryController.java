@@ -1,6 +1,7 @@
 package application.controller;
 
 import database.DatabaseDictionary;
+import database.TextToSpeech;
 import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -57,7 +58,6 @@ public class DictionaryController extends MenuController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        modeLabel.setText("Meaning:");
         webEngine = webView.getEngine();
         loadPage();
         proposeWordList.getItems().addAll(databaseDictionary.getAllWordsTarget());
@@ -70,6 +70,10 @@ public class DictionaryController extends MenuController implements Initializabl
                     historyWordList.getItems().remove(pickingWord);
                 }
                 historyWordList.getItems().add(0, pickingWord);
+
+                if (historyWordList.getItems().size() > 30) {
+                    historyWordList.getItems().remove(30);
+                }
             }
         });
 
@@ -140,7 +144,6 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void deleteWord() {
-        modeLabel.setText("Deleting");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Delete word");
         dialog.setContentText("Are you sure you want to delete this word?");
@@ -151,5 +154,10 @@ public class DictionaryController extends MenuController implements Initializabl
             Tries.deleteWordFromTries(pickingWord);
             proposeWordList.getItems().remove(pickingWord);
         }
+    }
+
+    public void playSound() {
+        TextToSpeech task = new TextToSpeech(pickingWord, "en");
+        new Thread(task).start();
     }
 }
