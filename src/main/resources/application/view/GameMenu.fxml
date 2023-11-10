@@ -18,7 +18,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_translate.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -50,7 +50,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_game.png" />
                            </image>
                         </ImageView>
                      </graphic>

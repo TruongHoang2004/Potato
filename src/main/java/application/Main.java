@@ -43,7 +43,6 @@ public class Main extends Application {
         boolean added = stage.getIcons().add(new Image(icon));
         stage.setTitle("Potato");
         stage.setScene(scene);
-        stage.setResizable(false);
         stage.show();
     }
 

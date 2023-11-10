@@ -1,5 +1,8 @@
 .root {
     -fx-background-color: #fdf5f3;
+    -fx-background-image: url("/image/background/blue.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-position: top left;
 }
 
 /* Button FXML css */

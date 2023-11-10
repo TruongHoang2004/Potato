@@ -21,7 +21,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_translate.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -53,7 +53,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_game.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -131,7 +131,7 @@
                      <graphic>
                         <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/translate.png" />
+                              <Image url="@../image/icon/translate_dark.png" />
                            </image>
                         </ImageView>
                      </graphic>

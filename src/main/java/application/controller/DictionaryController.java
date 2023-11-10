@@ -6,6 +6,7 @@ import database.Tries;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
@@ -24,7 +25,7 @@ public class DictionaryController extends MenuController implements Initializabl
     @FXML
     HTMLEditor htmlEditor = new HTMLEditor();
     @FXML
-    Pane editPane = new Pane();
+    AnchorPane editPane = new AnchorPane();
     @FXML
     ListView<String> proposeWordList = new ListView<>();
     @FXML
@@ -144,6 +145,7 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void deleteWord() {
+        modeLabel.setText("Deleting");
         Dialog<ButtonType> dialog = new Dialog<>();
         dialog.setTitle("Delete word");
         dialog.setContentText("Are you sure you want to delete this word?");
