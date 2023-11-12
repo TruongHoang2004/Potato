@@ -1,210 +1,300 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HangmanGameController">
    <children>
-      <Pane layoutX="344.0" layoutY="182.0" prefHeight="379.0" prefWidth="205.0">
+      <GridPane layoutX="120.0" layoutY="5.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="583.0" prefWidth="673.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
          <children>
-            <Label fx:id="resultLabel" layoutX="14.0" layoutY="57.0" prefHeight="103.0" prefWidth="192.0">
-               <font>
-                  <Font name="Times New Roman Bold" size="36.0" />
-               </font>
-            </Label>
+            <VBox maxHeight="800.0" maxWidth="1130.0" minHeight="0.0" minWidth="0.0" prefHeight="560.0" prefWidth="660.0" spacing="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+               <children>
+                  <HBox fx:id="crossWord" alignment="CENTER" prefHeight="41.0" prefWidth="667.0" spacing="10.0" />
+                  <Label fx:id="resultLabel" prefHeight="41.0" prefWidth="192.0">
+                     <font>
+                        <Font name="Times New Roman Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <GridPane maxHeight="650.0" maxWidth="1130.0" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="635.0" VBox.vgrow="ALWAYS">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="ALWAYS" maxWidth="800.0" minWidth="200.0" prefWidth="500.0" />
+                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" maxWidth="255.0" minWidth="170.0" prefWidth="255.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="700.0" minHeight="200.0" prefHeight="500.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <HBox maxHeight="50.0" maxWidth="120.0" minHeight="50.0" minWidth="120.0" prefHeight="50.0" prefWidth="170.0" spacing="20.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="TOP">
+                           <children>
+                              <Button fx:id="restartButton" maxHeight="75.0" maxWidth="75.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#restart" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/alter-icon-light.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button maxHeight="75.0" maxWidth="75.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="50.0" prefWidth="50.0" HBox.hgrow="ALWAYS">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/menu-icon-light.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets right="20.0" />
+                           </GridPane.margin>
+                        </HBox>
+                        <GridPane hgap="10.0" maxHeight="525.0" maxWidth="225.0" minHeight="350.0" minWidth="150.0" prefHeight="525.0" prefWidth="225.0" vgap="10.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                          </rowConstraints>
+                           <children>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="B" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="C" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="D" GridPane.columnIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="H" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="F" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="G" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="J" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="K" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="L" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="M" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="N" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="P" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Q" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="R" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="S" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="T" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="V" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="W" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="X" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Y" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button maxHeight="75.0" maxWidth="75.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Z" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets top="70.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                        <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
+                        <GridPane maxHeight="375.0" maxWidth="75.0" minHeight="250.0" minWidth="50.0" prefHeight="250.0" prefWidth="50.0" vgap="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                              <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                            <RowConstraints maxHeight="75.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                          </rowConstraints>
+                           <children>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="A">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="E" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="O" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="I" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                              <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="U" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <GridPane.margin>
+                              <Insets top="150.0" />
+                           </GridPane.margin>
+                        </GridPane>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
+      <Pane layoutX="23.0" layoutY="5.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+         <children>
+            <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/Menu_translate.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox layoutY="175.0" prefHeight="70.0" prefWidth="90.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/Learning.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox layoutY="315.0" prefHeight="70.0" prefWidth="90.0">
+               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/Menu_game.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+            <ImageView fitHeight="92.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icon/icon.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
-      <VBox alignment="TOP_CENTER" layoutX="76.0" layoutY="308.0" prefHeight="242.0" prefWidth="50.0" spacing="10.0" styleClass="gameButton" stylesheets="@../style/Style.css">
-         <children>
-            <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="A">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="E">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="49.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="O">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="I">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="U">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </VBox>
-      <VBox layoutX="613.0" layoutY="218.0" prefHeight="342.0" prefWidth="174.0" spacing="10.0" styleClass="gameButton" stylesheets="@../style/Style.css">
-         <children>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="B">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="C">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="D">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="F">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="G">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="H">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="J">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="K">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="L">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="M">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="N">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="P">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Q">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="R">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="S">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="T">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="V">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="W">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox prefHeight="24.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="X">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Y">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="50.0" prefWidth="50.0" styleClass="gameButton" stylesheets="@../style/Style.css" text="Z">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <HBox fx:id="crossWord" alignment="CENTER" layoutX="127.0" layoutY="42.0" prefHeight="41.0" prefWidth="667.0" spacing="10.0" />
-      <Button fx:id="restartButton" layoutX="613.0" layoutY="126.0" mnemonicParsing="false" onAction="#restart" prefHeight="56.0" prefWidth="58.0">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/icon/alter-icon-light.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button layoutX="728.0" layoutY="126.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="56.0" prefWidth="58.0">
-         <graphic>
-            <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/icon/menu-icon-light.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
    </children>
 </AnchorPane>

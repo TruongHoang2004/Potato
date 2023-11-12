@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -67,33 +71,46 @@
             </ImageView>
          </children>
       </Pane>
-      <AnchorPane layoutX="120.0" layoutY="30.0" prefHeight="560.0" prefWidth="680.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="110.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="20.0">
+      <GridPane layoutX="114.0" layoutY="20.0" prefHeight="535.0" prefWidth="656.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="50.0" prefHeight="100.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="70.0" minHeight="50.0" prefHeight="70.0" vgrow="ALWAYS" />
+          <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="100.0" vgrow="ALWAYS" />
+        </rowConstraints>
          <children>
-            <VBox prefHeight="250.0" prefWidth="678.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="226.0" prefWidth="656.0">
                <children>
-                  <HBox prefHeight="37.0" prefWidth="678.0">
+                  <HBox maxHeight="40.0" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="upperLabel" prefHeight="40.0" prefWidth="130.0" text="English">
+                        <Label fx:id="upperLabel" maxHeight="40.0" prefHeight="40.0" prefWidth="130.0" text="English">
                            <font>
                               <Font size="24.0" />
                            </font>
                         </Label>
                         <Button mnemonicParsing="false" onAction="#playSound1" prefHeight="40.0" prefWidth="50.0">
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icon/sound.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                      </children>
                   </HBox>
-                  <TextArea fx:id="inputTextArea" prefHeight="213.0" prefWidth="680.0">
+                  <TextArea fx:id="inputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="213.0" prefWidth="680.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="24.0" />
-                     </font></TextArea>
+                     </font>
+                  </TextArea>
                </children>
             </VBox>
-            <VBox layoutY="314.0" prefHeight="250.0" prefWidth="678.0">
+            <VBox prefHeight="250.0" prefWidth="678.0" GridPane.rowIndex="2">
                <children>
-                  <HBox prefHeight="37.0" prefWidth="678.0">
+                  <HBox maxHeight="40.0" maxWidth="1.7976931348623157E308" prefHeight="37.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Label fx:id="bottomLabel" prefHeight="40.0" prefWidth="130.0" text="Vietnamese">
                            <font>
@@ -102,20 +119,25 @@
                         </Label>
                         <Button mnemonicParsing="false" onAction="#playSound2" prefHeight="40.0" prefWidth="50.0">
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icon/sound.png" />
+                                 </image>
+                              </ImageView>
                            </graphic>
                         </Button>
                      </children>
                   </HBox>
-                  <TextArea fx:id="outputTextArea" prefHeight="214.0" prefWidth="678.0">
+                  <TextArea fx:id="outputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="Times New Roman" size="24.0" />
-                     </font></TextArea>
+                     </font>
+                  </TextArea>
                </children>
             </VBox>
-            <HBox alignment="CENTER" layoutX="403.0" layoutY="250.0" prefHeight="60.0" prefWidth="233.0" spacing="20.0">
+            <HBox alignment="CENTER" minHeight="50.0" minWidth="100.0" prefHeight="70.0" prefWidth="448.0" spacing="20.0" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                <children>
-                  <Button mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
+                  <Button minHeight="0.0" mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -124,7 +146,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#translate" prefHeight="46.0" prefWidth="149.0" text="Translate">
+                  <Button minHeight="0.0" mnemonicParsing="false" onAction="#translate" prefHeight="40.0" prefWidth="150.0" text="Translate">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -135,15 +157,24 @@
                            </image>
                         </ImageView>
                      </graphic>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
                   </Button>
                </children>
+               <GridPane.margin>
+                  <Insets left="200.0" />
+               </GridPane.margin>
             </HBox>
-            <Label fx:id="translatingLabel" layoutX="14.0" layoutY="268.0" prefHeight="28.0" prefWidth="142.0" text="Translating..." visible="false">
+            <Label fx:id="translatingLabel" prefHeight="28.0" prefWidth="142.0" text="Translating..." visible="false" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
             </Label>
          </children>
-      </AnchorPane>
+      </GridPane>
     </children>
 </AnchorPane>

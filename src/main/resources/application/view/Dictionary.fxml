@@ -55,7 +55,7 @@
                 <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="502.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <AnchorPane fx:id="editPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="editPane" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="1">
                      <children>
                         <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxWidth="1.7976931348623157E308" prefHeight="474.0" prefWidth="445.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                         <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0">
@@ -142,7 +142,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_translate.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -174,7 +174,7 @@
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/icon/Learning.png" />
+                              <Image url="@../image/icon/Menu_game.png" />
                            </image>
                         </ImageView>
                      </graphic>
