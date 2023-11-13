@@ -3,6 +3,7 @@ package application.controller;
 import database.DatabaseDictionary;
 import database.TextToSpeech;
 import database.Tries;
+import database.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -43,11 +44,17 @@ public class DictionaryController extends MenuController implements Initializabl
         pickingWord = searchField.getText();
 
         if (mode.equals("search")) {
-            String definition = databaseDictionary.lookUpWord(pickingWord);
-            webEngine.loadContent(definition);
+            String definition = Tries.wordDefinitionSearch(pickingWord);
+            if (pickingWord.equals("")) {
+                webEngine.loadContent("");
+            } else if (!definition.equals("000")) {
+                webEngine.loadContent(definition);
+            } else {
+                webEngine.loadContent("<h1>Word not found</h1>");
+            }
             proposeWordListAction(pickingWord);
         } else if (mode.equals("edit") || mode.equals("add")) {
-            htmlEditor.setHtmlText(databaseDictionary.lookUpWord(pickingWord));
+            htmlEditor.setHtmlText(Tries.wordDefinitionSearch(pickingWord));
             proposeWordListAction(pickingWord);
         }
     }
@@ -65,22 +72,22 @@ public class DictionaryController extends MenuController implements Initializabl
 
         proposeWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             pickingWord = newValue;
-            webEngine.loadContent(databaseDictionary.lookUpWord(pickingWord));
+            webEngine.loadContent(Tries.wordDefinitionSearch(pickingWord));
             if (pickingWord != null ) {
                 if (historyWordList.getItems().contains(pickingWord)) {
                     historyWordList.getItems().remove(pickingWord);
                 }
                 historyWordList.getItems().add(0, pickingWord);
 
-                if (historyWordList.getItems().size() > 30) {
-                    historyWordList.getItems().remove(30);
+                if (historyWordList.getItems().size() > 12) {
+                    historyWordList.getItems().remove(12);
                 }
             }
         });
 
         historyWordList.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             pickingWord = newValue;
-            webEngine.loadContent(databaseDictionary.lookUpWord(pickingWord));
+            webEngine.loadContent(Tries.wordDefinitionSearch(pickingWord));
         });
     }
 
@@ -115,31 +122,42 @@ public class DictionaryController extends MenuController implements Initializabl
         String word = searchField.getText();
 
         if (mode.equals("add")) {
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setTitle("Add word");
-            dialog.setContentText("Are you sure you want to add this word?");
-            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-            if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
-                databaseDictionary.addWord(word, htmlEditor.getHtmlText());
-                Tries.searchWord.add(word);
-                Tries.insertWordIntoTries(word);
-                proposeWordList.getItems().add(word);
-                Collections.sort(proposeWordList.getItems());
+            if (Tries.wordDefinitionSearch(word).equals("000")) {
+                Dialog<ButtonType> dialog = new Dialog<>();
+                dialog.setTitle("Add word");
+                dialog.setContentText("Are you sure you want to add this word?");
+                dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                    databaseDictionary.addWord(word, htmlEditor.getHtmlText());
+                    Tries.addWord(new Word(word, htmlEditor.getHtmlText()));
+                    proposeWordList.getItems().add(word);
+                    Collections.sort(proposeWordList.getItems());
+                }
+            } else {
+                Dialog<Void> dialog = new Dialog<>();
+                dialog.setTitle("Duplicate word");
+                dialog.setContentText("This word is already in the dictionary");
+                dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                dialog.showAndWait();
             }
         } else if (mode.equals("edit")) {
-            Dialog<ButtonType> dialog = new Dialog<>();
-            dialog.setTitle("Edit word");
-            dialog.setContentText("Are you sure you want to edit this word?");
-            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-            if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
-                databaseDictionary.editWord(word, htmlEditor.getHtmlText());
-                Tries.searchWord.remove(pickingWord);
-                Tries.deleteWordFromTries(pickingWord);
-                Tries.searchWord.add(word);
-                Tries.insertWordIntoTries(word);
-                proposeWordList.getItems().remove(pickingWord);
-                proposeWordList.getItems().add(word);
-                Collections.sort(proposeWordList.getItems());
+            if (!Tries.wordDefinitionSearch(word).equals("000")) {
+                Dialog<Void> dialog = new Dialog<>();
+                dialog.setTitle("Edit word");
+                dialog.setContentText("This word is not in the dictionary");
+                dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+                dialog.showAndWait();
+            }
+            else {
+                Dialog<ButtonType> dialog = new Dialog<>();
+                dialog.setTitle("Edit word");
+                dialog.setContentText("Are you sure you want to edit this word?");
+                dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                    databaseDictionary.editWord(word, htmlEditor.getHtmlText());
+                    Tries.editWord(new Word(word, htmlEditor.getHtmlText()));
+                    Collections.sort(proposeWordList.getItems());
+                }
             }
         }
     }
@@ -152,8 +170,7 @@ public class DictionaryController extends MenuController implements Initializabl
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
         if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
             databaseDictionary.deleteWord(pickingWord);
-            Tries.searchWord.remove(pickingWord);
-            Tries.deleteWordFromTries(pickingWord);
+            Tries.deleteWord(pickingWord);
             proposeWordList.getItems().remove(pickingWord);
         }
     }

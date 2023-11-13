@@ -3,7 +3,7 @@ package application.controller;
 import application.SceneManager;
 import javafx.event.ActionEvent;
 
-public class MenuController {
+public class  MenuController {
     private static final SceneManager sceneManager = new SceneManager();
 
     public void switchToDictionary(ActionEvent event) {

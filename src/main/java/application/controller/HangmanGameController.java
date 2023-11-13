@@ -1,7 +1,6 @@
 package application.controller;
 
 import application.SceneManager;
-import database.TranslatorAPI;
 import database.Tries;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +14,6 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.net.URL;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 public class HangmanGameController extends GameMenuController implements Initializable {
@@ -50,14 +48,13 @@ public class HangmanGameController extends GameMenuController implements Initial
     }
 
     private String getRandomWord() {
-        Random random = new Random();
-        int index = random.nextInt(Tries.searchWord.size() - 1);
-        if (Tries.searchWord.get(index).contains(" ")
-                || Tries.searchWord.get(index).contains("-")
-                || Tries.searchWord.get(index).contains("'")) {
+        String word = Tries.getRamdomWord().getWordTarget();
+        if (word.contains(" ")
+                || word.contains("-")
+                || word.contains("'")) {
             return getRandomWord();
         }
-        return Tries.searchWord.get(index);
+        return word;
     }
 
     private void check(String letter) {
