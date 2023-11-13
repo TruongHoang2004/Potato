@@ -156,6 +156,7 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public void addWord(String target, String explain) {
+        target = target.toLowerCase();
         final String SQL_QUERY = "INSERT INTO dictionary (target, definition) VALUES (?, ?)";
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -170,6 +171,7 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public void editWord(String target, String explain) {
+        target = target.toLowerCase();
         final String SQL_QUERY = "UPDATE dictionary SET definition = ? WHERE target = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);
@@ -183,6 +185,7 @@ public class DatabaseDictionary extends Dictionary {
 
     @Override
     public void deleteWord(String target) {
+        target = target.toLowerCase();
         final  String SQL_QUERY = "DELETE FROM dictionary WHERE target = ?";
         try {
             PreparedStatement ps = connection.prepareStatement(SQL_QUERY);

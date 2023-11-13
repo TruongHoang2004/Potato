@@ -1,17 +1,63 @@
 package database;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Tries {
-
-    public static final ArrayList<String> searchWord = new ArrayList<>();
     public static final ArrayList<Word> words = new ArrayList<>();
     public static final TrieNode root = new TrieNode();
 
     public static ArrayList<String> getSearchWord() {
-        return searchWord;
+        ArrayList<String> res = new ArrayList<>();
+        for (Word word : words) {
+            res.add(word.getWordTarget());
+        }
+        return res;
+    }
+
+    public static void initialize(ArrayList<Word> words) {
+        words.addAll(words);
+        for (Word word : words) {
+            insertWordIntoTries(word.getWordTarget());
+        }
+        words.sort(Comparator.comparing(Word::getWordTarget));
+    }
+
+    public static void addWord(Word word) {
+        words.add(word);
+        insertWordIntoTries(word.getWordTarget());
+        words.sort(Comparator.comparing(Word::getWordTarget));
+    }
+
+    public static void editWord(Word word) {
+        int left = 0;
+        int right = words.size() - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (words.get(mid).getWordTarget().equals(word.getWordTarget())) {
+                words.set(mid, word);
+            } else if (words.get(mid).getWordTarget().compareTo(word.getWordTarget()) < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
+    }
+
+    public static void deleteWord(String target) {
+        int left = 0;
+        int right = words.size() - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (words.get(mid).getWordTarget().equals(target)) {
+                words.remove(mid);
+                deleteWordFromTries(target);
+                return;
+            } else if (words.get(mid).getWordTarget().compareTo(target) < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
+            }
+        }
     }
 
     public static void insertWordIntoTries(String word) {
@@ -33,12 +79,9 @@ public class Tries {
     }
 
     public static ArrayList<String> getWordSub(String word) {
+        word = word.toLowerCase();
         ArrayList<String> proposeWord = new ArrayList<>();
         TrieNode crawl = root;
-
-        if (word == null) {
-            return proposeWord;
-        }
 
         int length = word.length();
         for (int i = 0; i < length; ++i) {
@@ -87,22 +130,28 @@ public class Tries {
         }
     }
 
-    public static String getDefinition(String word) {
-        int low = 0;
-        int high = words.size() - 1;
-
-       //Binary search
-        while (low <= high) {
-            int mid = low / 2 + high / 2;
-            if (words.get(mid).getWordTarget().compareTo(word) < 0) {
-                low = mid + 1;
-            } else if (words.get(mid).getWordTarget().compareTo(word) > 0) {
-                high = mid - 1;
-            } else {
-                System.out.println(words.get(mid).getWordExplain());
+    public static String wordDefinitionSearch(String word) {
+        if (word == null || word.isEmpty()) {
+            return "";
+        }
+        //Binary search
+        int left = 0;
+        int right = words.size() - 1;
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (words.get(mid).getWordTarget().equals(word)) {
                 return words.get(mid).getWordExplain();
+            } else if (words.get(mid).getWordTarget().compareTo(word) < 0) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
-            System.out.println(1);
+        }
+
+        for (Word word1 : words) {
+            if (word1.getWordTarget().equals(word)) {
+                return word1.getWordExplain();
+            }
         }
 
         return "000";
@@ -116,6 +165,11 @@ public class Tries {
         TrieNode() {
             isEndOfWord = false;
         }
+    }
+
+    public static Word getRamdomWord() {
+        Random random = new Random();
+        return words.get(random.nextInt(words.size()));
     }
 }
 

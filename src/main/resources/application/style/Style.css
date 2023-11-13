@@ -67,7 +67,7 @@
     -fx-border-color: #0093EF;
 }
 
-.ListView {
+.ListView.content {
     -fx-background-color: #e2e4e8;
     -fx-background-radius: 5;
     -fx-effect: dropshadow(gaussian, #b0d4b8, 20, 0.6, 0, 0);
@@ -81,7 +81,7 @@
 }
 
 .label {
-    -fx-background-color: #ffffff;
+    -fx-background-color: transparent;
 }
 
 .utilButton {

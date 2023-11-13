@@ -1,6 +1,7 @@
 package application;
 
 import application.controller.DictionaryController;
+import database.Dictionary;
 import database.Tries;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +19,7 @@ public class Main extends Application {
         try {
             System.out.println("Initialize application...");
             DictionaryController.databaseDictionary.initialize();
-            Tries.searchWord.addAll(DictionaryController.databaseDictionary.getAllWordsTarget());
-            Tries.insertAllWordsIntoTries(Tries.searchWord);
+            Tries.initialize(DictionaryController.databaseDictionary.getAllWords());
             words.addAll(DictionaryController.databaseDictionary.getAllWords());
             System.out.println("Initialize application successfully!");
         } catch (SQLException e) {
@@ -43,6 +43,8 @@ public class Main extends Application {
         boolean added = stage.getIcons().add(new Image(icon));
         stage.setTitle("Potato");
         stage.setScene(scene);
+        stage.setMinWidth(400);
+        stage.setMinHeight(500);
         stage.show();
     }
 

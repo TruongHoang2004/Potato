@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class SceneManager {
 
-    private static Stage stage;
+    private static Stage stage = new Stage();
     private static Scene scene;
     private static final List<Scene> sceneList = new ArrayList<>();
 
@@ -42,10 +42,15 @@ public class SceneManager {
 
     public void switchScene(SceneName name, ActionEvent event) throws Exception {
 
+        int currentWith = (int)stage.getWidth();
+        int currentHeight = (int)stage.getHeight();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = sceneList.get(name.getIndex());
         String css = Objects.requireNonNull(this.getClass().getResource("style/Style.css")).toExternalForm();
         scene.getStylesheets().add(css);
+
+        stage.setWidth(currentWith);
+        stage.setHeight(currentHeight);
 
         stage.setScene(scene);
         stage.show();
