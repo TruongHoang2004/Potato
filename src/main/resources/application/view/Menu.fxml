@@ -10,27 +10,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MenuController">
    <children>
-      <Pane layoutX="14.0" layoutY="22.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+      <Pane layoutX="29.0" layoutY="23.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
          <children>
-            <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
+            <VBox layoutY="175.0" minHeight="210.0" minWidth="90.0">
                <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" stylesheets="@../style/Style.css" text="Translate">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_translate.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="175.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button fx:id="dictrionaryButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToDictionary" prefHeight="70.0" prefWidth="90.0" stylesheets="@../style/Style.css" text="Dictionary">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToDictionary" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
                      <font>
                         <Font name="Verdana" size="12.0" />
                      </font>
@@ -42,11 +26,19 @@
                         </ImageView>
                      </graphic>
                   </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="315.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="70.0" prefWidth="90.0" stylesheets="@../style/Style.css" text="Game">
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/Menu_translate.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                  </Button>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                            <image>

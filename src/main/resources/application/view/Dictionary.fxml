@@ -24,7 +24,7 @@
          <children>
             <GridPane maxWidth="300.0" prefHeight="560.0" prefWidth="200.0" vgap="10.0" HBox.hgrow="ALWAYS">
               <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="50.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
@@ -41,24 +41,27 @@
                      <image>
                         <Image url="@../image/icon/Search.png" />
                      </image>
+                     <GridPane.margin>
+                        <Insets left="10.0" />
+                     </GridPane.margin>
                   </ImageView>
-                  <ListView fx:id="proposeWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                  <ListView fx:id="historyWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                  <ListView fx:id="proposeWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="50.0" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                  <ListView fx:id="historyWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="50.0" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="560.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
+            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="100.0" prefHeight="560.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="502.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="0.0" prefHeight="502.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
                   <AnchorPane fx:id="editPane" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="1">
                      <children>
                         <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxWidth="1.7976931348623157E308" prefHeight="474.0" prefWidth="445.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -67,7 +70,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0">
+                        <Button mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -78,7 +81,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Label fx:id="modeLabel" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" prefHeight="50.0" prefWidth="488.0" text="Meaning:" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
+                  <Label fx:id="modeLabel" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" prefHeight="50.0" prefWidth="286.0" text="Meaning:" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Verdana" size="22.0" />
                      </font>
@@ -86,9 +89,9 @@
                         <Insets />
                      </GridPane.margin>
                   </Label>
-                  <HBox maxHeight="40.0" maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  <HBox maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="0.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0">
+                        <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -97,7 +100,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToAddMode" prefHeight="40.0" prefWidth="40.0">
+                        <Button mnemonicParsing="false" onAction="#switchToAddMode" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -106,7 +109,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToEditMode" prefHeight="40.0" prefWidth="40.0">
+                        <Button mnemonicParsing="false" onAction="#switchToEditMode" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -115,7 +118,7 @@
                               </ImageView>
                            </graphic>
                         </Button>
-                        <Button mnemonicParsing="false" onAction="#deleteWord" prefHeight="40.0" prefWidth="46.0">
+                        <Button mnemonicParsing="false" onAction="#deleteWord" prefHeight="40.0" prefWidth="46.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -126,33 +129,17 @@
                         </Button>
                      </children>
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets left="100.0" right="10.0" />
                      </GridPane.margin>
                   </HBox>
-                  <WebView fx:id="webView" minHeight="200.0" minWidth="200.0" prefHeight="495.0" prefWidth="445.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                  <WebView fx:id="webView" minWidth="200.0" prefHeight="495.0" prefWidth="445.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
                </children>
             </GridPane>
          </children>
       </HBox>
       <Pane layoutX="24.0" layoutY="32.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
          <children>
-            <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_translate.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="175.0" prefHeight="70.0" prefWidth="90.0">
+            <VBox layoutY="175.0" minHeight="210.0" minWidth="90.0">
                <children>
                   <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
                      <font>
@@ -166,10 +153,18 @@
                         </ImageView>
                      </graphic>
                   </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="315.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
+                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/icon/Menu_translate.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Verdana" size="12.0" />
+                     </font>
+                  </Button>
                   <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">

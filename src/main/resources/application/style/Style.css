@@ -1,11 +1,13 @@
 .root {
     -fx-background-color: #fdf5f3;
-    -fx-background-image: url("/image/background/blue.jpg");
-    -fx-background-repeat: stretch;
+    -fx-background-image: url("../image/icon/background.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
     -fx-background-position: top left;
 }
 
 /* Button FXML css */
+
 .button {
     -fx-background-color: #b0d4b8;
     -fx-background-radius: 25;
@@ -40,6 +42,24 @@
     -fx-background-radius: 25;
     -fx-font-size: 20;
     -fx-font-weight: bold;
+}
+
+.dictionaryButton {
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.dictionaryButton:hover {
+    -fx-background-radius: 0;
+    -fx-background-color: #eeeeee;
+}
+
+.dictionaryButton:pressed {
+    -fx-background-radius: 0;
+    -fx-background-color: #e1e1e1;
 }
 
 .pane {
