@@ -7,186 +7,149 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
-<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
-   <children>
-      <HBox layoutX="101.0" layoutY="23.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="200.0" minWidth="200.0" prefHeight="560.0" prefWidth="600.0" spacing="15.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
+   <left>
+      <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
+   </left>
+   <center>
+      <StackPane prefHeight="620.0" prefWidth="518.0" BorderPane.alignment="TOP_LEFT">
+         <BorderPane.margin>
+            <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
          <children>
-            <GridPane maxWidth="300.0" prefHeight="560.0" prefWidth="200.0" vgap="10.0" HBox.hgrow="ALWAYS">
-              <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="300.0" vgrow="ALWAYS" />
-                <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="150.0" vgrow="ALWAYS" />
-              </rowConstraints>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" spacing="10.0" StackPane.alignment="TOP_LEFT">
                <children>
-                  <TextField fx:id="searchField" maxWidth="1.7976931348623157E308" minHeight="50.0" minWidth="50.0" onKeyTyped="#searchBarAction" prefHeight="50.0" prefWidth="176.0" styleClass="searchField" GridPane.hgrow="ALWAYS">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.42" pickOnBounds="true" preserveRatio="true" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
-                     <image>
-                        <Image url="@../image/icon/Search.png" />
-                     </image>
-                  </ImageView>
-                  <ListView fx:id="proposeWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
-                  <ListView fx:id="historyWordList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="234.0" prefWidth="176.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
-               </children>
-            </GridPane>
-            <GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="560.0" prefWidth="445.0" HBox.hgrow="ALWAYS">
-              <columnConstraints>
-                <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="502.0" vgrow="ALWAYS" />
-              </rowConstraints>
-               <children>
-                  <AnchorPane fx:id="editPane" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.rowIndex="1">
+                  <StackPane>
                      <children>
-                        <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxWidth="1.7976931348623157E308" prefHeight="474.0" prefWidth="445.0" AnchorPane.bottomAnchor="45.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="60.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/icons8-tick-48.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="5.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/icons8-cancel-50.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <TextField fx:id="searchField" minHeight="50.0" onKeyTyped="#searchBarAction" prefHeight="50.0" styleClass="searchField">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.42" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                           <image>
+                              <Image url="@../image/icon/Search.png" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </ImageView>
                      </children>
-                  </AnchorPane>
-                  <Label fx:id="modeLabel" maxWidth="1.7976931348623157E308" minHeight="40.0" minWidth="100.0" prefHeight="50.0" prefWidth="488.0" text="Meaning:" GridPane.halignment="LEFT" GridPane.valignment="CENTER">
-                     <font>
-                        <Font name="Verdana" size="22.0" />
-                     </font>
-                     <GridPane.margin>
-                        <Insets />
-                     </GridPane.margin>
-                  </Label>
-                  <HBox maxHeight="40.0" maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" GridPane.halignment="RIGHT" GridPane.valignment="CENTER">
+                  </StackPane>
+                  <ListView fx:id="proposeWordList" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
+                  <ListView fx:id="historyWordList" maxHeight="300.0" VBox.vgrow="NEVER" />
+               </children>
+            </VBox>
+            <VBox minWidth="300.0" StackPane.alignment="TOP_RIGHT">
+               <children>
+                  <StackPane maxHeight="50.0" minWidth="300.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/sound.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToAddMode" prefHeight="40.0" prefWidth="40.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/icons8-add-48.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#switchToEditMode" prefHeight="40.0" prefWidth="40.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/icons8-edit-48.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
-                        <Button mnemonicParsing="false" onAction="#deleteWord" prefHeight="40.0" prefWidth="46.0">
-                           <graphic>
-                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../image/icon/icons8-delete-48.png" />
-                                 </image>
-                              </ImageView>
-                           </graphic>
-                        </Button>
+                        <Label fx:id="modeLabel" maxHeight="50.0" maxWidth="1.7976931348623157E308" prefHeight="50.0" text="Meaning:" StackPane.alignment="CENTER_LEFT">
+                           <font>
+                              <Font name="Verdana" size="22.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                        <HBox maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="0.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/sound.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#switchToAddMode" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/Dictionary_add.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#switchToEditMode" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/Dictionary_edit.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#deleteWord" prefHeight="40.0" prefWidth="46.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css">
+                                 <graphic>
+                                    <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../image/icon/Dictionary_delete.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
-                     <GridPane.margin>
-                        <Insets right="10.0" />
-                     </GridPane.margin>
-                  </HBox>
-                  <WebView fx:id="webView" minHeight="200.0" minWidth="200.0" prefHeight="495.0" prefWidth="445.0" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                  </StackPane>
+                  <StackPane minHeight="200.0" minWidth="300.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <WebView fx:id="webView" focusTraversable="false" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" StackPane.alignment="CENTER">
+                           <StackPane.margin>
+                              <Insets />
+                           </StackPane.margin></WebView>
+                        <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" visible="false" StackPane.alignment="BOTTOM_RIGHT">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icon/Dictionary_ok.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="70.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" visible="false" StackPane.alignment="BOTTOM_RIGHT">
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../image/icon/Dictionary-cancel.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <StackPane.margin>
+                              <Insets right="10.0" />
+                           </StackPane.margin>
+                        </Button>
+                        <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" visible="false">
+                           <StackPane.margin>
+                              <Insets bottom="50.0" />
+                           </StackPane.margin></HTMLEditor>
+                     </children>
+                  </StackPane>
                </children>
-            </GridPane>
+               <StackPane.margin>
+                  <Insets left="270.0" right="20.0" />
+               </StackPane.margin>
+            </VBox>
          </children>
-      </HBox>
-      <Pane layoutX="24.0" layoutY="32.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
-         <children>
-            <VBox layoutY="245.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_translate.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="175.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
-                     <font>
-                        <Font name="Verdana" size="12.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Learning.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox layoutY="315.0" prefHeight="70.0" prefWidth="90.0">
-               <children>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_game.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </VBox>
-            <ImageView fitHeight="92.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/icon/icon.png" />
-               </image>
-            </ImageView>
-         </children>
-      </Pane>
-   </children>
-</AnchorPane>
+      </StackPane>
+   </center>
+   <top>
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
