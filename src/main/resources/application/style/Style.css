@@ -103,18 +103,3 @@
 .label {
     -fx-background-color: transparent;
 }
-
-.utilButton {
-    -fx-background-color: #fdf5f3;
-    -fx-background-radius: 5;
-}
-
-.utilButton:hover {
-    -fx-background-color: #fdf5f3;
-    -fx-background-radius: 5;
-}
-
-.utilButton:pressed {
-    -fx-background-color: #fdf5f3;
-    -fx-background-radius: 5;
-}

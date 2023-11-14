@@ -1,65 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
-    <children>
-      <Button layoutX="152.0" layoutY="44.0" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="150.0" prefWidth="166.0" stylesheets="@../style/Style.css" text="Hangman">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Button>
-      <Pane layoutX="34.0" layoutY="42.0" prefHeight="563.0" prefWidth="90.0" styleClass="pane" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="20.0">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
+   <left>
+      <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
+   </left>
+   <center>
+      <VBox>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
          <children>
-            <VBox layoutY="175.0" minHeight="210.0" minWidth="90.0">
+            <Label alignment="CENTER" prefHeight="160.0" prefWidth="2000.0" text="Chose your game to play!" VBox.vgrow="NEVER">
+               <font>
+                  <Font name="Verdana Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="620.0" prefWidth="1080.0" spacing="50.0">
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToDictionary" prefHeight="70.0" prefWidth="90.0" text="Dictionary">
+                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="160.0" prefWidth="200.0" styleClass="hangmanButton" stylesheets="@../style/Button.css" text="Hangman">
                      <font>
-                        <Font name="Verdana" size="12.0" />
+                        <Font name="Verdana Bold" size="24.0" />
                      </font>
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Learning.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                     <padding>
+                        <Insets bottom="-40.0" />
+                     </padding>
                   </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToTranslator" prefHeight="70.0" prefWidth="90.0" text="Translate">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_translate.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="160.0" prefWidth="200.0" text="Choice">
                      <font>
-                        <Font name="Verdana" size="12.0" />
+                        <Font name="Verdana Bold" size="24.0" />
                      </font>
-                  </Button>
-                  <Button contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" prefWidth="90.0" text="Game">
-                     <graphic>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/Menu_game.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="-40.0" />
+                     </padding>
                   </Button>
                </children>
-            </VBox>
-            <ImageView fitHeight="92.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../image/icon/icon.png" />
-               </image>
-            </ImageView>
+            </HBox>
          </children>
-      </Pane>
-    </children>
-</AnchorPane>
+      </VBox>
+   </center>
+   <bottom>
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+   </top>
+</BorderPane>
