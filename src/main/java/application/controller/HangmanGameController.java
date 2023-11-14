@@ -2,6 +2,7 @@ package application.controller;
 
 import application.SceneManager;
 import database.Tries;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,27 +10,32 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Timer;
 
 public class HangmanGameController extends GameMenuController implements Initializable {
 
     @FXML
     private HBox crossWord = new HBox(10);
     @FXML
-    Label resultLabel = new Label("You win");
+    private Button restartButton = new Button();
     @FXML
-    Button restartButton = new Button();
+    private ImageView hangmanImage = new ImageView();
+    @FXML
+    private Label resultLabel = new Label();
     private String answer;
     private int numOfFalse = 0;
-    private String gameStatus = "playing";
+    private String gameState = "playing";
 
     public void action(ActionEvent event) {
-        if (gameStatus.equals("playing")) {
+        if (gameState.equals("playing")) {
             Button button = (Button) event.getSource();
             button.setVisible(false);
             check(button.getText().toLowerCase());
@@ -66,37 +72,36 @@ public class HangmanGameController extends GameMenuController implements Initial
             }
         } else if (!letter.equals("a") && !letter.equals("e") && !letter.equals("i") && !letter.equals("o") && !letter.equals("u")) {
             this.numOfFalse++;
-            System.out.println("false " + letter);
+            hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/" + this.numOfFalse + ".png").toString()));
         }
-        if (this.numOfFalse == 6) {
-            Dialog dialog = new Dialog();
-            dialog.setTitle("You lose");
-            dialog.setContentText("The answer is " + this.answer + "\nDo you want to restart?");
-            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-            if (dialog.showAndWait().get().equals(ButtonType.YES)) {
-                restartButton.fire();
-            } else {
-                gameStatus = "breaking";
-            }
+        if (this.numOfFalse == 9) {
+            gameState = "breaking";
+            Task<Void> task = new Task<Void>() {
+                @Override
+                protected Void call() throws Exception {
+                    hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/9.png").toString()));
+                    Thread.sleep(500);
+                    hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/10.png").toString()));
+                    return null;
+                }
+            };
+            task.setOnSucceeded(event -> {
+                resultLabel.setText(this.answer.toUpperCase());
+            });
+            new Thread(task).start();
         }
 
         if (this.crossWord.getChildren().stream().noneMatch(node -> ((Label) node).getText().equals("_"))) {
 
-            Dialog dialog = new Dialog();
-            dialog.setTitle("You win");
-            dialog.setContentText("Do you want to restart?");
-            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-            if (dialog.showAndWait().get().equals(ButtonType.YES)) {
-                restartButton.fire();
-            } else {
-                gameStatus = "breaking";
-            }
+            hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/11.png").toString()));
+            resultLabel.setText("You win!");
+            gameState = "breaking";
         }
     }
 
     public void restart(ActionEvent event) {
 
-        if (gameStatus.equals("playing")) {
+        if (gameState.equals("playing")) {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setTitle("Restart");
             dialog.setContentText("Are you sure you want to restart?");

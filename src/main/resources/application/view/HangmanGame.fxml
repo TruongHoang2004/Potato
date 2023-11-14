@@ -32,7 +32,7 @@
                         <Font name="Times New Roman Bold" size="36.0" />
                      </font>
                   </Label>
-                  <GridPane maxHeight="650.0" maxWidth="1130.0" minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="635.0" VBox.vgrow="ALWAYS">
+                  <GridPane maxHeight="650.0" maxWidth="1130.0" minHeight="0.0" minWidth="0.0" prefHeight="477.0" prefWidth="660.0" VBox.vgrow="ALWAYS">
                     <columnConstraints>
                         <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
                       <ColumnConstraints fillWidth="false" hgrow="ALWAYS" maxWidth="800.0" minWidth="200.0" prefWidth="500.0" />
@@ -193,7 +193,6 @@
                               <Insets top="70.0" />
                            </GridPane.margin>
                         </GridPane>
-                        <ImageView fitHeight="155.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" />
                         <GridPane maxHeight="375.0" maxWidth="75.0" minHeight="250.0" minWidth="50.0" prefHeight="250.0" prefWidth="50.0" vgap="10.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                           <columnConstraints>
                             <ColumnConstraints hgrow="ALWAYS" maxWidth="75.0" minWidth="50.0" prefWidth="50.0" />
@@ -236,6 +235,16 @@
                               <Insets top="150.0" />
                            </GridPane.margin>
                         </GridPane>
+                        <ImageView fx:id="hangmanImage" fitHeight="464.0" fitWidth="401.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <image>
+                              <Image url="@../image/hangman/0.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="54.0" prefWidth="430.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font name="System Bold" size="32.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                </children>

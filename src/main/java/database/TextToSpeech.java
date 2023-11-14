@@ -1,6 +1,7 @@
 package database;
 
 import javafx.concurrent.Task;
+import javafx.scene.control.Dialog;
 import javazoom.jl.player.Player;
 
 import java.io.InputStream;
@@ -11,8 +12,8 @@ import java.nio.charset.StandardCharsets;
 
 public class TextToSpeech extends Task<Void> {
 
-    private String text;
-    private String language;
+    private final String text;
+    private final String language;
 
     public TextToSpeech(String text, String language) {
         this.text = text;
@@ -38,7 +39,7 @@ public class TextToSpeech extends Task<Void> {
     }
 
     @Override
-    protected Void call() throws Exception {
+    protected Void call() {
         playGoogleTranslateSound();
         return null;
     }

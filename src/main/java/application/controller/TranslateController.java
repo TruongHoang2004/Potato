@@ -5,6 +5,7 @@ import database.TranslatorAPI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 
 
 public class TranslateController extends MenuController {
@@ -18,7 +19,8 @@ public class TranslateController extends MenuController {
     private Label bottomLabel = new Label("Vietnamese");
     @FXML
     private Label translatingLabel = new Label("Translating...");
-
+    @FXML
+    private ImageView loading = new ImageView();
     private int mode = 0;
 
     /**
@@ -55,10 +57,14 @@ public class TranslateController extends MenuController {
 
         task.setOnSucceeded(event -> {
             outputTextArea.setText(task.getValue());
-            translatingLabel.setVisible(false);
+            translatingLabel.setText("");
+            loading.setVisible(false);
         });
 
-        task.setOnRunning(event -> translatingLabel.setVisible(true));
+        task.setOnRunning(event -> {
+            translatingLabel.setText("Translating...");
+            loading.setVisible(true);
+        });
         new Thread(task).start();
     }
 

@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
@@ -45,7 +44,7 @@ public class DictionaryController extends MenuController implements Initializabl
 
         if (mode.equals("search")) {
             String definition = Tries.wordDefinitionSearch(pickingWord);
-            if (pickingWord.equals("")) {
+            if (pickingWord.isEmpty()) {
                 webEngine.loadContent("");
             } else if (!definition.equals("000")) {
                 webEngine.loadContent(definition);
@@ -74,9 +73,7 @@ public class DictionaryController extends MenuController implements Initializabl
             pickingWord = newValue;
             webEngine.loadContent(Tries.wordDefinitionSearch(pickingWord));
             if (pickingWord != null ) {
-                if (historyWordList.getItems().contains(pickingWord)) {
-                    historyWordList.getItems().remove(pickingWord);
-                }
+                historyWordList.getItems().remove(pickingWord);
                 historyWordList.getItems().add(0, pickingWord);
 
                 if (historyWordList.getItems().size() > 12) {
@@ -127,7 +124,7 @@ public class DictionaryController extends MenuController implements Initializabl
                 dialog.setTitle("Add word");
                 dialog.setContentText("Are you sure you want to add this word?");
                 dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.isEmpty()) {
                     databaseDictionary.addWord(word, htmlEditor.getHtmlText());
                     Tries.addWord(new Word(word, htmlEditor.getHtmlText()));
                     proposeWordList.getItems().add(word);
@@ -153,7 +150,7 @@ public class DictionaryController extends MenuController implements Initializabl
                 dialog.setTitle("Edit word");
                 dialog.setContentText("Are you sure you want to edit this word?");
                 dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+                if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.isEmpty()) {
                     databaseDictionary.editWord(word, htmlEditor.getHtmlText());
                     Tries.editWord(new Word(word, htmlEditor.getHtmlText()));
                     Collections.sort(proposeWordList.getItems());
@@ -168,7 +165,7 @@ public class DictionaryController extends MenuController implements Initializabl
         dialog.setTitle("Delete word");
         dialog.setContentText("Are you sure you want to delete this word?");
         dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-        if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.equals("")) {
+        if (dialog.showAndWait().get().equals(ButtonType.YES) && !pickingWord.isEmpty()) {
             databaseDictionary.deleteWord(pickingWord);
             Tries.deleteWord(pickingWord);
             proposeWordList.getItems().remove(pickingWord);
@@ -176,7 +173,19 @@ public class DictionaryController extends MenuController implements Initializabl
     }
 
     public void playSound() {
-        TextToSpeech task = new TextToSpeech(pickingWord, "en");
-        new Thread(task).start();
+        try {
+            TextToSpeech task = new TextToSpeech(pickingWord, "en");
+            task.setOnFailed(event -> {
+                Dialog<Void> dialog = new Dialog<>();
+                dialog.setTitle("Can't play sound");
+                dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            });
+
+            new Thread(task).start();
+        } catch (Exception e) {
+            Dialog dialog = new Dialog();
+            dialog.setTitle("Can't play sound");
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        }
     }
 }
