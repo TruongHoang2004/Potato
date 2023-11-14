@@ -16,7 +16,7 @@
          <children>
             <Button contentDisplay="TOP" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="70.0" text="Home">
                <font>
-                  <Font name="Verdana" size="14.0" />
+                  <Font name="Verdana" size="12.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
@@ -45,7 +45,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Verdana" size="14.0" />
+                  <Font name="Verdana" size="12.0" />
                </font>
             </Button>
          </children>
@@ -64,7 +64,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Verdana" size="14.0" />
+                  <Font name="Verdana" size="12.0" />
                </font>
             </Button>
          </children>
@@ -83,7 +83,7 @@
                   </ImageView>
                </graphic>
                <font>
-                  <Font name="Verdana" size="14.0" />
+                  <Font name="Verdana" size="12.0" />
                </font>
             </Button>
          </children>

@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.SceneManager;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 
 public class  MenuController {
@@ -45,5 +46,9 @@ public class  MenuController {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void quit(ActionEvent event) {
+        Platform.exit();
     }
 }

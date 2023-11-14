@@ -22,7 +22,7 @@
                         <Font name="Verdana" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Quit">
+                  <Button mnemonicParsing="false" onAction="#quit" prefHeight="50.0" prefWidth="120.0" text="Quit">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>

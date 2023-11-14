@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 
 public class TranslateController extends MenuController {
@@ -57,12 +59,11 @@ public class TranslateController extends MenuController {
 
         task.setOnSucceeded(event -> {
             outputTextArea.setText(task.getValue());
-            translatingLabel.setText("");
             loading.setVisible(false);
         });
 
         task.setOnRunning(event -> {
-            translatingLabel.setText("Translating...");
+            outputTextArea.setText("Translating...");
             loading.setVisible(true);
         });
         new Thread(task).start();
@@ -78,6 +79,15 @@ public class TranslateController extends MenuController {
             task = new TextToSpeech(inputTextArea.getText(), "vi");
             new Thread(task).start();
         }
+
+        task.setOnSucceeded(event -> {
+            loading.setVisible(false);
+        });
+
+        task.setOnRunning(event -> {
+            loading.setVisible(true);
+        });
+
         new Thread(task).start();
     }
 
@@ -89,6 +99,20 @@ public class TranslateController extends MenuController {
         } else {
             task = new TextToSpeech(outputTextArea.getText(), "en");
             new Thread(task).start();
+        }
+
+        task.setOnSucceeded(event -> {
+            loading.setVisible(false);
+        });
+
+        task.setOnRunning(event -> {
+            loading.setVisible(true);
+        });
+    }
+
+    public void setOnKeyPressed(KeyEvent event) {
+        if (event.getCode() == KeyCode.ENTER) {
+            translate();
         }
     }
 }
