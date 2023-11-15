@@ -18,7 +18,6 @@ import javafx.scene.text.FontWeight;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.Timer;
 
 public class HangmanGameController extends GameMenuController implements Initializable {
 
@@ -32,10 +31,10 @@ public class HangmanGameController extends GameMenuController implements Initial
     private Label resultLabel = new Label();
     private String answer;
     private int numOfFalse = 0;
-    private String gameState = "playing";
+    private boolean isPlaying = true;
 
     public void action(ActionEvent event) {
-        if (gameState.equals("playing")) {
+        if (this.isPlaying) {
             Button button = (Button) event.getSource();
             button.setVisible(false);
             check(button.getText().toLowerCase());
@@ -75,7 +74,7 @@ public class HangmanGameController extends GameMenuController implements Initial
             hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/" + this.numOfFalse + ".png").toString()));
         }
         if (this.numOfFalse == 9) {
-            gameState = "breaking";
+            this.isPlaying = false;
             Task<Void> task = new Task<Void>() {
                 @Override
                 protected Void call() throws Exception {
@@ -95,13 +94,13 @@ public class HangmanGameController extends GameMenuController implements Initial
 
             hangmanImage.setImage(new Image(this.getClass().getResource("/application/image/hangman/11.png").toString()));
             resultLabel.setText("You win!");
-            gameState = "breaking";
+            this.isPlaying = false;
         }
     }
 
     public void restart(ActionEvent event) {
 
-        if (gameState.equals("playing")) {
+        if (this.isPlaying) {
             Dialog<ButtonType> dialog = new Dialog<>();
             dialog.setTitle("Restart");
             dialog.setContentText("Are you sure you want to restart?");
@@ -116,18 +115,28 @@ public class HangmanGameController extends GameMenuController implements Initial
         }
     }
 
-    public void switchToGameMenu(ActionEvent event) {
+    public void quitGame(ActionEvent event) {
 
         Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Back to game menu");
-        dialog.setContentText("Are you sure you want to back to game menu?");
-        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
-        if (dialog.showAndWait().get().equals(ButtonType.NO)) {
-            return;
+        if (isPlaying) {
+            dialog.setTitle("Back to game menu");
+            dialog.setContentText("Are you sure you want to back to game menu?");
+            dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
+            if (dialog.showAndWait().get().equals(ButtonType.NO)) {
+                return;
+            }
         }
 
         try {
-            new SceneManager().switchScene(SceneManager.SceneName.GAME_MENU, event);
+            new SceneManager().switchScene(SceneManager.SceneName.HANGMAN_GAME_MENU, event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void startGame(ActionEvent event) {
+        try {
+            sceneManager.switchScene(SceneManager.SceneName.HANGMAN_GAME, event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
