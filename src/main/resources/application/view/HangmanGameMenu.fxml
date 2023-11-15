@@ -7,9 +7,9 @@
 
 <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="600.0" minWidth="800.0" prefHeight="600.0" prefWidth="800.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HangmanGameController">
    <children>
-      <Button layoutX="341.0" layoutY="355.0" mnemonicParsing="false" onAction="#startGame" prefHeight="76.0" prefWidth="130.0" text="Start" />
-      <Button layoutX="348.0" layoutY="452.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="76.0" prefWidth="117.0" text="Quit" />
-      <Button layoutX="21.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@../style/Button.css">
+      <Button layoutX="341.0" layoutY="355.0" mnemonicParsing="false" onAction="#startGame" prefHeight="76.0" prefWidth="130.0" styleClass="utilButton" text="Start" />
+      <Button layoutX="348.0" layoutY="452.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="76.0" prefWidth="117.0" styleClass="utilButton" text="Quit" />
+      <Button layoutX="21.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
          <graphic>
             <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -18,7 +18,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button layoutX="109.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" stylesheets="@../style/Button.css">
+      <Button layoutX="109.0" layoutY="23.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" />
          </graphic>

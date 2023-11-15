@@ -15,17 +15,17 @@
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
    <left>
-      <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
+      <fx:include prefHeight="-1.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
    <center>
-      <StackPane prefHeight="620.0" prefWidth="518.0" BorderPane.alignment="TOP_LEFT">
+      <StackPane BorderPane.alignment="TOP_LEFT">
          <BorderPane.margin>
-            <Insets bottom="20.0" left="20.0" right="10.0" top="10.0" />
+            <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
          </BorderPane.margin>
          <children>
-            <VBox maxHeight="1.7976931348623157E308" maxWidth="250.0" minWidth="250.0" prefWidth="250.0" spacing="10.0" StackPane.alignment="TOP_LEFT">
+            <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="250.0" spacing="10.0" StackPane.alignment="TOP_LEFT">
                <children>
                   <StackPane>
                      <children>
@@ -48,14 +48,14 @@
                      </children>
                   </StackPane>
                   <ListView fx:id="proposeWordList" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS" />
-                  <ListView fx:id="historyWordList" maxHeight="300.0" VBox.vgrow="NEVER" />
+                  <ListView fx:id="historyWordList" maxHeight="280.0" VBox.vgrow="NEVER" />
                </children>
             </VBox>
-            <VBox minWidth="300.0" spacing="5.0" StackPane.alignment="TOP_RIGHT">
+            <VBox focusTraversable="true" spacing="10.0" StackPane.alignment="TOP_LEFT">
                <children>
                   <StackPane maxHeight="50.0" minWidth="300.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Label fx:id="modeLabel" maxHeight="50.0" maxWidth="1.7976931348623157E308" prefHeight="50.0" text="Meaning:" StackPane.alignment="CENTER_LEFT">
+                        <Label fx:id="modeLabel" maxHeight="50.0" maxWidth="1.7976931348623157E308" minWidth="200.0" prefHeight="50.0" text="Meaning:" StackPane.alignment="CENTER_LEFT">
                            <font>
                               <Font name="Verdana Bold" size="22.0" />
                            </font>
@@ -63,7 +63,7 @@
                               <Insets left="5.0" />
                            </padding>
                         </Label>
-                        <HBox maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="0.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+                        <HBox maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
                            <children>
                               <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0">
                                  <graphic>
@@ -108,7 +108,7 @@
                         </HBox>
                      </children>
                   </StackPane>
-                  <StackPane minHeight="200.0" minWidth="300.0" styleClass="stack-pane" VBox.vgrow="ALWAYS">
+                  <StackPane minWidth="300.0" VBox.vgrow="ALWAYS">
                      <children>
                         <Button fx:id="okButton" alignment="CENTER" mnemonicParsing="false" onAction="#okButton" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" visible="false" StackPane.alignment="BOTTOM_RIGHT">
                            <graphic>
@@ -122,7 +122,7 @@
                               <Insets right="70.0" />
                            </StackPane.margin>
                         </Button>
-                        <Button fx:id="CancelButton" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" visible="false" StackPane.alignment="BOTTOM_RIGHT">
+                        <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#switchToSearch" prefHeight="40.0" prefWidth="40.0" styleClass="dictionaryButton" stylesheets="@../style/Style.css" visible="false" StackPane.alignment="BOTTOM_RIGHT">
                            <graphic>
                               <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -134,11 +134,12 @@
                               <Insets right="10.0" />
                            </StackPane.margin>
                         </Button>
-                        <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="0.0" opacity="0.7" visible="false">
+                        <HTMLEditor fx:id="htmlEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" visible="false">
                            <StackPane.margin>
                               <Insets bottom="50.0" />
-                           </StackPane.margin></HTMLEditor>
-                        <WebView fx:id="webView" focusTraversable="false" minHeight="-1.0" minWidth="-1.0" opacity="0.7" prefHeight="534.0" prefWidth="858.0" StackPane.alignment="CENTER">
+                           </StackPane.margin>
+                        </HTMLEditor>
+                        <WebView fx:id="webView" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin></WebView>
@@ -146,7 +147,7 @@
                   </StackPane>
                </children>
                <StackPane.margin>
-                  <Insets left="270.0" right="20.0" />
+                  <Insets left="270.0" />
                </StackPane.margin>
             </VBox>
          </children>
@@ -158,4 +159,7 @@
    <bottom>
       <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
    </bottom>
+   <right>
+      <StackPane prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>

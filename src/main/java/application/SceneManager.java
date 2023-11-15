@@ -43,8 +43,8 @@ public class SceneManager {
 
     public void switchScene(SceneName name, ActionEvent event) throws Exception {
 
-        int currentWith = (int)stage.getWidth();
-        int currentHeight = (int)stage.getHeight();
+        double currentWith = stage.getWidth();
+        double currentHeight = stage.getHeight();
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = sceneList.get(name.getIndex());
         String css = Objects.requireNonNull(this.getClass().getResource("style/Style.css")).toExternalForm();
