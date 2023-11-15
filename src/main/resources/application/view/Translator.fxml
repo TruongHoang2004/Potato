@@ -20,7 +20,7 @@
    <center>
       <VBox BorderPane.alignment="TOP_LEFT">
          <children>
-            <VBox prefHeight="226.0" prefWidth="656.0" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="226.0" prefWidth="656.0" spacing="2.0" VBox.vgrow="ALWAYS">
                <children>
                   <StackPane VBox.vgrow="NEVER">
                      <children>
@@ -29,7 +29,7 @@
                               <Font name="Verdana" size="24.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#playSound1" prefHeight="40.0" prefWidth="50.0" StackPane.alignment="CENTER_LEFT">
+                        <Button mnemonicParsing="false" onAction="#playSound1" prefHeight="40.0" prefWidth="50.0" styleClass="utilButton1" stylesheets="@../style/GameButton.css" StackPane.alignment="CENTER_LEFT">
                            <graphic>
                               <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -43,12 +43,15 @@
                         </Button>
                      </children>
                   </StackPane>
-                  <TextArea fx:id="inputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="500.0" prefHeight="213.0" prefWidth="680.0" VBox.vgrow="ALWAYS">
+                  <TextArea fx:id="inputTextArea" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minWidth="500.0" opacity="0.9" prefHeight="213.0" prefWidth="680.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </TextArea>
                </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </VBox>
             <HBox alignment="CENTER_LEFT" minHeight="50.0" minWidth="100.0" prefHeight="70.0" prefWidth="448.0" spacing="20.0" VBox.vgrow="NEVER">
                <children>
@@ -71,7 +74,7 @@
                      </image>
                   </ImageView>
                   <Region prefHeight="70.0" prefWidth="144.0" />
-                  <Button minHeight="0.0" mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0">
+                  <Button minHeight="0.0" mnemonicParsing="false" onAction="#switchMode" prefHeight="40.0" prefWidth="50.0" styleClass="utilButton" stylesheets="@../style/GameButton.css">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -80,7 +83,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button minHeight="0.0" minWidth="150.0" mnemonicParsing="false" onAction="#translate" prefHeight="40.0" prefWidth="150.0" text="Translate">
+                  <Button minHeight="0.0" minWidth="150.0" mnemonicParsing="false" onAction="#translate" prefHeight="40.0" prefWidth="150.0" styleClass="utilButton" stylesheets="@../style/GameButton.css" text="Translate">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -97,7 +100,7 @@
                   </Button>
                </children>
             </HBox>
-            <VBox prefHeight="250.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
+            <VBox prefHeight="250.0" prefWidth="678.0" spacing="2.0" VBox.vgrow="ALWAYS">
                <children>
                   <StackPane prefHeight="40.0" VBox.vgrow="NEVER">
                      <children>
@@ -106,7 +109,7 @@
                               <Font name="Verdana" size="24.0" />
                            </font>
                         </Label>
-                        <Button mnemonicParsing="false" onAction="#playSound2" prefHeight="40.0" prefWidth="50.0" StackPane.alignment="CENTER_LEFT">
+                        <Button mnemonicParsing="false" onAction="#playSound2" prefHeight="40.0" prefWidth="50.0" styleClass="utilButton1" stylesheets="@../style/GameButton.css" StackPane.alignment="CENTER_LEFT">
                            <graphic>
                               <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -120,7 +123,7 @@
                         </Button>
                      </children>
                   </StackPane>
-                  <TextArea fx:id="outputTextArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="214.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
+                  <TextArea fx:id="outputTextArea" editable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" opacity="0.9" prefHeight="214.0" prefWidth="678.0" VBox.vgrow="ALWAYS">
                      <font>
                         <Font name="Times New Roman" size="24.0" />
                      </font>

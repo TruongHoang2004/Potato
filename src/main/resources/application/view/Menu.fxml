@@ -17,12 +17,12 @@
          <children>
             <HBox maxHeight="50.0" maxWidth="260.0" minHeight="50.0" minWidth="260.0" spacing="20.0" StackPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" text="Github">
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="utilButton" stylesheets="@../style/GameButton.css" text="Github">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#quit" prefHeight="50.0" prefWidth="120.0" text="Quit">
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="120.0" styleClass="utilButton" stylesheets="@../style/GameButton.css" text="Quit">
                      <font>
                         <Font name="Verdana" size="18.0" />
                      </font>

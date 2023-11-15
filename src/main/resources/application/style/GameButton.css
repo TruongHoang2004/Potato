@@ -1,0 +1,51 @@
+.button {
+    -fx-background-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-style: solid;
+    -fx-border-radius: 5;
+}
+
+.button:hover {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.button:pressed {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+}
+
+/* Util button */
+
+.utilButton {
+    -fx-border-radius: 0;
+}
+
+.utilButton:hover {
+    -fx-border-radius: 0;
+}
+
+.utilButton:pressed {
+    -fx-border-radius: 0;
+}
+
+.utilButton1 {
+    -fx-border-radius: 0;
+}
+
+.utilButton1:hover {
+    -fx-background-color: rgba(180, 180, 180, 0.3);
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+.utilButton1:pressed{
+    -fx-border-radius: 0;
+}
