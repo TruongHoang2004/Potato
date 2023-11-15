@@ -15,8 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/GameButton.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HangmanGameController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.HangmanGameController">
    <center>
       <VBox alignment="CENTER" spacing="10.0">
          <BorderPane.margin>
@@ -54,27 +53,27 @@
                 <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="A">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="A">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="E" GridPane.rowIndex="1">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="E" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="O" GridPane.rowIndex="2">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="O" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="I" GridPane.rowIndex="3">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="I" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="U" GridPane.rowIndex="4">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="U" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -105,107 +104,107 @@
                 <RowConstraints maxHeight="50.0" minHeight="50.0" prefHeight="50.0" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="B" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="B" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="C" GridPane.columnIndex="1">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="C" GridPane.columnIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="D" GridPane.columnIndex="2">
+                  <Button minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="D" GridPane.columnIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="H" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="H" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="F" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="F" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="G" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="G" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="J" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="J" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="K" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="K" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="L" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="L" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="M" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="M" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="N" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="N" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="P" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="P" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="Q" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="Q" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="R" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="R" GridPane.columnIndex="1" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="S" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="S" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="T" GridPane.rowIndex="5">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="T" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="V" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="V" GridPane.columnIndex="1" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="W" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="W" GridPane.columnIndex="2" GridPane.rowIndex="5">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="X" GridPane.rowIndex="6">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="X" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="Y" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                  <Button mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="Y" GridPane.columnIndex="1" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button maxHeight="75.0" maxWidth="75.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" text="Z" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                  <Button maxHeight="75.0" maxWidth="75.0" minHeight="50.0" minWidth="50.0" mnemonicParsing="false" onAction="#action" prefHeight="75.0" prefWidth="75.0" styleClass="utilButton1" text="Z" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>

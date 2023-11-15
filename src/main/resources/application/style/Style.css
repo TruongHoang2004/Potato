@@ -5,3 +5,150 @@
     -fx-background-size: cover;
     -fx-background-position: top left;
 }
+
+/* Button */
+
+.button {
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center center;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-style: solid;
+    -fx-transition: transform 0.1s;
+}
+
+.button:hover {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2
+}
+
+.button:pressed {
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
+    -fx-background-color: transparent;
+}
+
+/* Util button */
+
+.utilButton {
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: black;
+}
+
+.utilButton:hover {
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: black;
+}
+
+.utilButton:pressed {
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: black;
+}
+
+.utilButton1 {
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: black;
+}
+
+.utilButton1:hover {
+    -fx-background-color: rgba(180, 180, 180, 0.3);
+    -fx-border-color: black;
+    -fx-border-radius: 0;
+    -fx-border-width: 1 1 1 1;
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+.utilButton1:pressed{
+    -fx-border-radius: 0;
+    -fx-border-color: black;
+}
+
+
+/* Game Menu Button */
+
+.hangmanMenuButton {
+    -fx-background-image: url('../image/icon/hangman.png');
+}
+
+.quizButton {
+    -fx-background-image: url('../image/icon/quiz.png');
+}
+
+/* Menu button */
+
+.menuButton {
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+    -fx-border-radius: 5;
+}
+
+.menuButton:hover {
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-background-color: transparent;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.menuButton:pressed {
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+    -fx-background-color: transparent;
+}
+
+/* ListView, Webview,... */
+
+.list-cell:even {
+    -fx-background-color: rgba(220, 220, 220, 0.3);
+}
+
+.list-cell:odd {
+    -fx-background-color: rgba(240, 240, 240, 0.3);
+}
+
+.list-cell:selected {
+    -fx-background-color: rgba(180, 180, 180, 0.3);
+    -fx-text-fill: black;
+}
+
+.list-view {
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-color: transparent;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-pref-width: 10;
+    -fx-opacity: 0.7;
+}
+
+.stack-pane {
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.text-area {
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color: black;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+}
+
+.text-area:focused {
+    -fx-focus-color: transparent;
+    -fx-background-color: transparent;
+    -fx-faint-focus-color: transparent;
+}

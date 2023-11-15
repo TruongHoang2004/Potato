@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
    <left>
       <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
@@ -26,7 +26,7 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="620.0" prefWidth="1080.0" spacing="50.0">
                <children>
-                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="160.0" prefWidth="200.0" styleClass="hangmanButton" stylesheets="@../style/Button.css" text="Hangman">
+                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToHangManGame" prefHeight="160.0" prefWidth="200.0" styleClass="hangmanMenuButton" text="Hangman">
                      <font>
                         <Font name="Verdana Bold" size="24.0" />
                      </font>
