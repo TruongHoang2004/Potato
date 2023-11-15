@@ -34,6 +34,7 @@ public class SceneManager {
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/Dictionary.fxml")))));
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/Translator.fxml")))));
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/GameMenu.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/HangmanGameMenu.fxml")))));
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/HangmanGame.fxml")))));
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -62,7 +63,8 @@ public class SceneManager {
         DICTIONARY(1),
         TRANSLATOR(2),
         GAME_MENU(3),
-        HANGMAN_GAME(4);
+        HANGMAN_GAME_MENU(4),
+        HANGMAN_GAME(5);
         private final int index;
 
         SceneName(int index) {

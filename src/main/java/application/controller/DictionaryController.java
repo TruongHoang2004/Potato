@@ -16,7 +16,7 @@ import java.net.URL;
 import java.util.Collections;
 import java.util.ResourceBundle;
 
-public class DictionaryController extends MenuController implements Initializable {
+public class DictionaryController extends ControllerSwitcher implements Initializable {
 
     @FXML
     private TextField searchField = new TextField();

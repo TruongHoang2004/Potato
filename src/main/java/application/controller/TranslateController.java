@@ -10,7 +10,8 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
-public class TranslateController extends MenuController {
+public class TranslateController extends ControllerSwitcher {
+
     @FXML
     private TextArea inputTextArea = new TextArea();
     @FXML
