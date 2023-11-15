@@ -37,7 +37,7 @@
                         <Insets bottom="-40.0" />
                      </padding>
                   </Button>
-                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="160.0" prefWidth="200.0" text="Choice">
+                  <Button alignment="BOTTOM_CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#switchToQuizGame" prefHeight="160.0" prefWidth="200.0" text="Choice">
                      <font>
                         <Font name="Verdana Bold" size="24.0" />
                      </font>

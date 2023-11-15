@@ -2,6 +2,7 @@ package application;
 
 import application.controller.DictionaryController;
 import database.Dictionary;
+import database.GameDatabase;
 import database.Tries;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,6 +20,7 @@ public class Main extends Application {
         try {
             System.out.println("Initialize application...");
             DictionaryController.databaseDictionary.initialize();
+            GameDatabase.initialize();
             Tries.initialize(DictionaryController.databaseDictionary.getAllWords());
             words.addAll(DictionaryController.databaseDictionary.getAllWords());
             System.out.println("Initialize application successfully!");

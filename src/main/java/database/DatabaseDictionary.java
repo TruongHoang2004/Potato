@@ -1,20 +1,9 @@
 package database;
 
-import javafx.scene.control.ButtonBar;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-
 import java.sql.*;
 import java.util.ArrayList;
 
-public class DatabaseDictionary extends Dictionary {
-    private static final String HOST_NAME = "localhost";
-    private static final String PASS_WORD = "truonghaioop2023";
-    private static final String DB_NAME = "word";
-    private static final String USER_NAME = "Potato";
-    private static final String PORT = "3306";
-    private static final String MYSQL_URL =
-            "jdbc:mysql://" + HOST_NAME + ":" + PORT + "/" + DB_NAME;
+public class DatabaseDictionary extends Dictionary implements DatabaseInformation {
     private static Connection connection = null;
 
     /**
