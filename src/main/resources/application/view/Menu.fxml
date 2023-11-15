@@ -15,11 +15,11 @@
       <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
    <center>
-      <StackPane BorderPane.alignment="CENTER">
+      <StackPane focusTraversable="true" BorderPane.alignment="CENTER">
          <children>
             <HBox maxHeight="50.0" maxWidth="260.0" minHeight="50.0" minWidth="400.0" spacing="100.0" StackPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Github">
+                  <Button mnemonicParsing="false" onAction="#openGithub" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Github">
                      <font>
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
@@ -31,7 +31,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Quit">
+                  <Button mnemonicParsing="false" onAction="#quit" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Quit">
                      <font>
                         <Font name="Verdana Bold" size="18.0" />
                      </font>
@@ -45,21 +45,21 @@
                   </Button>
                </children>
             </HBox>
-            <WebView prefHeight="638.0" prefWidth="1080.0" visible="false" />
-            <Button mnemonicParsing="false" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: transparent;" styleClass="utilButton1" StackPane.alignment="TOP_RIGHT">
-               <graphic>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/icon/exit_git.png" />
-                     </image>
-                  </ImageView>
-               </graphic></Button>
             <ImageView fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../image/icon/potato_01.png" />
                </image>
                <StackPane.margin>
                   <Insets right="50.0" />
+               </StackPane.margin>
+            </ImageView>
+            <WebView fx:id="github" prefHeight="638.0" prefWidth="1080.0" visible="false" />
+            <ImageView fx:id="loading" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="TOP_LEFT">
+               <image>
+                  <Image url="@../image/icon/loading.gif" />
+               </image>
+               <StackPane.margin>
+                  <Insets />
                </StackPane.margin>
             </ImageView>
          </children>
@@ -69,7 +69,20 @@
       </StackPane>
    </center>
    <top>
-      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="55.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="exitGithub" mnemonicParsing="false" onAction="#exitGithub" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: transparent;" styleClass="utilButton1" visible="false" StackPane.alignment="TOP_RIGHT">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/icon/exit_git.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <StackPane.margin>
+                  <Insets />
+               </StackPane.margin></Button>
+         </children></StackPane>
    </top>
    <bottom>
       <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
