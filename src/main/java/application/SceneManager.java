@@ -36,23 +36,21 @@ public class SceneManager {
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/GameMenu.fxml")))));
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/HangmanGameMenu.fxml")))));
             sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/HangmanGame.fxml")))));
+            sceneList.add(new Scene(FXMLLoader.load(Objects.requireNonNull(getClass().getResource("view/QuizGame.fxml")))));
         } catch (Exception e) {
-            throw new RuntimeException(e);
+                throw new RuntimeException(e);
         }
     }
 
     public void switchScene(SceneName name, ActionEvent event) throws Exception {
 
-        int currentWith = (int)stage.getWidth();
-        int currentHeight = (int)stage.getHeight();
+        stage.setWidth(stage.getWidth());
+        stage.setHeight(stage.getHeight());
+
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         scene = sceneList.get(name.getIndex());
         String css = Objects.requireNonNull(this.getClass().getResource("style/Style.css")).toExternalForm();
         scene.getStylesheets().add(css);
-
-        stage.setWidth(currentWith);
-        stage.setHeight(currentHeight);
-
         stage.setScene(scene);
         stage.show();
     }
@@ -64,7 +62,8 @@ public class SceneManager {
         TRANSLATOR(2),
         GAME_MENU(3),
         HANGMAN_GAME_MENU(4),
-        HANGMAN_GAME(5);
+        HANGMAN_GAME(5),
+        QUIZ_GAME(6);
         private final int index;
 
         SceneName(int index) {

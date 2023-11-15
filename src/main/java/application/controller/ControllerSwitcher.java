@@ -47,4 +47,12 @@ public class ControllerSwitcher {
             throw new RuntimeException(e);
         }
     }
+
+    public void switchToQuizGame(ActionEvent event) {
+        try {
+            new SceneManager().switchScene(SceneManager.SceneName.QUIZ_GAME, event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
