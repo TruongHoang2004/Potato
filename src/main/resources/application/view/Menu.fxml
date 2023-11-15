@@ -17,11 +17,11 @@
    <center>
       <StackPane BorderPane.alignment="CENTER">
          <children>
-            <HBox maxHeight="50.0" maxWidth="260.0" minHeight="50.0" minWidth="300.0" spacing="20.0" StackPane.alignment="BOTTOM_CENTER">
+            <HBox maxHeight="50.0" maxWidth="260.0" minHeight="50.0" minWidth="400.0" spacing="100.0" StackPane.alignment="BOTTOM_CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" styleClass="utilButton" text="Github">
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Github">
                      <font>
-                        <Font name="Verdana" size="18.0" />
+                        <Font name="Verdana Bold" size="18.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -31,9 +31,9 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="140.0" styleClass="utilButton" text="Quit">
+                  <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" text="Quit">
                      <font>
-                        <Font name="Verdana" size="18.0" />
+                        <Font name="Verdana Bold" size="18.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
@@ -54,6 +54,14 @@
                      </image>
                   </ImageView>
                </graphic></Button>
+            <ImageView fitHeight="256.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/icon/potato_01.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="50.0" />
+               </StackPane.margin>
+            </ImageView>
          </children>
          <BorderPane.margin>
             <Insets left="50.0" right="50.0" />

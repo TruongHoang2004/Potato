@@ -137,7 +137,17 @@
       </VBox>
    </center>
    <top>
-      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="header-label" text="Translator">
+               <StackPane.margin>
+                  <Insets top="5.0" />
+               </StackPane.margin>
+               <font>
+                  <Font name="Verdana Bold" size="30.0" />
+               </font>
+            </Label>
+         </children></StackPane>
    </top>
    <bottom>
       <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />

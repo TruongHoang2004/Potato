@@ -14,7 +14,7 @@
       <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
    <center>
-      <VBox>
+      <VBox minWidth="400.0">
          <BorderPane.margin>
             <Insets left="50.0" right="50.0" />
          </BorderPane.margin>
@@ -23,6 +23,9 @@
                <font>
                   <Font name="Verdana Bold" size="24.0" />
                </font>
+               <padding>
+                  <Insets right="60.0" />
+               </padding>
             </Label>
             <HBox alignment="CENTER" prefHeight="620.0" prefWidth="1080.0" spacing="50.0">
                <children>
@@ -54,6 +57,16 @@
       <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
    </bottom>
    <top>
-      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="223.0" styleClass="header-label" text="Game menu">
+               <StackPane.margin>
+                  <Insets top="5.0" />
+               </StackPane.margin>
+               <font>
+                  <Font name="Verdana Bold" size="30.0" />
+               </font>
+            </Label>
+         </children></StackPane>
    </top>
 </BorderPane>

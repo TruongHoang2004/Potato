@@ -15,7 +15,7 @@
 <?import javafx.scene.web.HTMLEditor?>
 <?import javafx.scene.web.WebView?>
 
-<BorderPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.DictionaryController">
    <left>
       <fx:include prefHeight="-1.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
@@ -154,7 +154,17 @@
       </StackPane>
    </center>
    <top>
-      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="header-label" text="Dictionary">
+               <font>
+                  <Font name="Verdana Bold" size="30.0" />
+               </font>
+               <StackPane.margin>
+                  <Insets top="5.0" />
+               </StackPane.margin>
+            </Label>
+         </children></StackPane>
    </top>
    <bottom>
       <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
