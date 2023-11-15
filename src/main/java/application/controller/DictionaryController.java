@@ -32,7 +32,10 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
     ListView<String> historyWordList = new ListView<>();
     @FXML
     private Label modeLabel = new Label();
-
+    @FXML
+    private Button cancelButton = new Button();
+    @FXML
+    private  Button okButton = new Button();
     String pickingWord;
 
     private WebEngine webEngine;
@@ -96,7 +99,9 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
         mode = "add";
         modeLabel.setText("Adding");
         webView.setVisible(false);
-        editPane.setVisible(true);
+        htmlEditor.setVisible(true);
+        okButton.setVisible(true);
+        cancelButton.setVisible(true);
         searchBarAction();
     }
 
@@ -104,7 +109,9 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
         mode = "edit";
         modeLabel.setText("Editing");
         webView.setVisible(false);
-        editPane.setVisible(true);
+        htmlEditor.setVisible(true);
+        okButton.setVisible(true);
+        cancelButton.setVisible(true);
         searchBarAction();
     }
 
@@ -112,7 +119,9 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
         mode = "search";
         modeLabel.setText("Meaning:");
         webView.setVisible(true);
-        editPane.setVisible(false);
+        htmlEditor.setVisible(false);
+        okButton.setVisible(false);
+        cancelButton.setVisible(false);
     }
 
     public void okButton() {

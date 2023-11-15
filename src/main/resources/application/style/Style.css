@@ -1,9 +1,29 @@
 .root {
-    -fx-background-color: #fdf5f3;
-    -fx-background-image: url("../image/icon/background.png");
+    -fx-background-image: url("../image/icon/background_01.png");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
-    -fx-background-position: top left;
+    -fx-background-position: center center;
+}
+
+.background-01 {
+    -fx-background-image: url("../image/icon/background_01.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.background-02 {
+    -fx-background-image: url("../image/icon/background_02.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+.background-03 {
+    -fx-background-image: url("../image/icon/background_03.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 /* Button */
@@ -13,8 +33,8 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: center center;
     -fx-background-color: transparent;
-    -fx-border-color: transparent;
-    -fx-border-style: solid;
+    -fx-border-color: black;
+    -fx-border-width: 2 2 2 2;
     -fx-transition: transform 0.1s;
 }
 
@@ -105,7 +125,34 @@
     -fx-background-color: transparent;
 }
 
-/* ListView, Webview,... */
+/* Hangman button */
+
+.hangmanButton {
+    -fx-background-color: #b4bdff;
+    -fx-background-radius: 5;
+    -fx-text-fill: black;
+    -fx-border-radius: 5;
+}
+
+.hangmanButton:hover {
+    -fx-background-color: #779bd2;
+}
+
+.hangmanButton-01 {
+    -fx-background-color: #b4bdff;
+    -fx-background-radius: 5;
+    -fx-text-fill: black;
+    -fx-border-radius: 5;
+    -fx-border-color: black;
+    -fx-border-width: 1 1 1 1;
+}
+
+.hangmanButton-01:hover {
+    -fx-background-color: #779bd2;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+/* ListView, Web view,... */
 
 .list-cell:even {
     -fx-background-color: rgba(220, 220, 220, 0.3);
@@ -124,7 +171,6 @@
     -fx-border-color: black;
     -fx-border-width: 1;
     -fx-border-radius: 5;
-    -fx-background-color: transparent;
 }
 
 .list-view .scroll-bar:vertical {
@@ -151,4 +197,18 @@
     -fx-focus-color: transparent;
     -fx-background-color: transparent;
     -fx-faint-focus-color: transparent;
+}
+
+.web-view {
+    -fx-background-color: blue;
+    -fx-border-color: black;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+.header-label {
+    -fx-background-color: rgba(240, 240, 240, 0.3);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
 }
