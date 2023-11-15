@@ -97,10 +97,16 @@
 
 .hangmanMenuButton {
     -fx-background-image: url('../image/icon/hangman.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 .quizButton {
-    -fx-background-image: url('../image/icon/quiz.png');
+    -fx-background-image: url('../image/icon/Quiz.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
 }
 
 /* Menu button */
@@ -180,7 +186,7 @@
 
 .stack-pane {
     -fx-border-color: black;
-    -fx-border-width: 1;
+    -fx-border-width: 2;
     -fx-border-radius: 5;
 }
 
@@ -210,5 +216,11 @@
     -fx-background-color: rgba(240, 240, 240, 0.3);
     -fx-border-color: black;
     -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+}
+
+.h-box {
+    -fx-border-color: black;
+    -fx-border-width: 1px;
     -fx-border-radius: 5px;
 }
