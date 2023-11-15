@@ -1,36 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="788.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.QuizGameController">
-   <children>
-      <Text fx:id="questionLabel" layoutX="71.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Câu hỏi" wrappingWidth="646.936767578125">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Text>
-      <Button fx:id="answer1Button" layoutX="99.0" layoutY="300.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da1" />
-      <Button fx:id="answer3Button" layoutX="99.0" layoutY="453.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="194.0" text="da3" />
-      <Button fx:id="answer2Button" layoutX="523.0" layoutY="300.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da2" />
-      <Button fx:id="answer4Button" layoutX="523.0" layoutY="453.0" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da4" />
-      <HBox alignment="CENTER" layoutX="99.0" layoutY="216.0" prefHeight="47.0" prefWidth="590.0" spacing="30.0">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.QuizGameController">
+   <center>
+      <VBox spacing="50.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="1" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="2" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="3" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="4" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="5" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="6" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="7" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="8" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="9" />
-            <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="32.0" prefWidth="32.0" text="10" />
+            <StackPane prefHeight="97.0" prefWidth="1280.0" styleClass="stack-pane">
+               <children>
+                  <Text fx:id="questionLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Câu hỏi" wrappingWidth="693.936767578125">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </StackPane>
+            <HBox alignment="CENTER" prefHeight="32.0" prefWidth="590.0" spacing="30.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="1">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="2">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="3">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="4">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="5">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="6">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="7">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="8">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="9">
+                     <font>
+                        <Font name="Verdana Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="10">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <GridPane prefHeight="225.0" prefWidth="500.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="answer1Button" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Verdana" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="answer3Button" mnemonicParsing="false" prefHeight="86.0" prefWidth="194.0" text="da3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Verdana" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="answer2Button" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da2" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Verdana" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="answer4Button" mnemonicParsing="false" prefHeight="85.0" prefWidth="194.0" text="da4" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Verdana" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
          </children>
-      </HBox>
-   </children>
-</AnchorPane>
+      </VBox>
+   </center>
+   <bottom>
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <top>
+      <StackPane prefHeight="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="50.0" prefWidth="190.0" styleClass="header-label" text="QUIZ">
+               <font>
+                  <Font name="Verdana Bold" size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </top>
+   <left>
+      <StackPane prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <StackPane prefWidth="50.0" BorderPane.alignment="CENTER" />
+   </right>
+</BorderPane>

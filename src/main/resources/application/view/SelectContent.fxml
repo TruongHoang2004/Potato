@@ -45,21 +45,33 @@
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Colors">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Sports">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="transports">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                      </children>
                   </HBox>
@@ -69,26 +81,41 @@
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Subjects">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Instruments">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Nature">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                         <Button contentDisplay="TOP" mnemonicParsing="false" prefHeight="100.0" prefWidth="140.0" styleClass="utilButton1" text="Items">
                            <font>
                               <Font name="Verdana" size="16.0" />
                            </font>
+                           <graphic>
+                              <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" />
+                           </graphic>
                         </Button>
                      </children>
                   </HBox>
@@ -99,8 +126,14 @@
                <children>
                   <HBox maxHeight="70.0" maxWidth="420.0" prefHeight="70.0" prefWidth="200.0" spacing="120.0" StackPane.alignment="CENTER">
                      <children>
-                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Start" />
-                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Quit" />
+                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Start">
+                           <font>
+                              <Font name="Verdana" size="24.0" />
+                           </font></Button>
+                        <Button mnemonicParsing="false" prefHeight="70.0" prefWidth="150.0" text="Quit">
+                           <font>
+                              <Font name="Verdana" size="24.0" />
+                           </font></Button>
                      </children>
                   </HBox>
                </children>
