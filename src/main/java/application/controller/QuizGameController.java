@@ -7,7 +7,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -33,7 +32,7 @@ public class QuizGameController implements Initializable {
     public void loadAllQuestions() {
         List<String> topics = gameDatabase.getAllTopics();
         for (String topic : topics) {
-            List<Word> words = gameDatabase.getWordByTopic(topic);
+            List<Word> words = gameDatabase.getWordsByTopic(topic);
             Random random = new Random();
             Word word = words.get(random.nextInt(words.size()));
             String[] answers = new String[4];

@@ -1,7 +1,8 @@
 package application.controller;
 
 import application.SceneManager;
-import database.Tries;
+import database.GameDatabase;
+import database.Word;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 
 import java.net.URL;
+import java.util.List;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 public class HangmanGameController extends GameMenuController implements Initializable {
@@ -31,7 +34,8 @@ public class HangmanGameController extends GameMenuController implements Initial
     private Label resultLabel = new Label();
     private String answer;
     private int numOfFalse = 0;
-    private boolean isPlaying = true;
+    private static boolean isPlaying = false;
+    private static String content;
 
     public void action(ActionEvent event) {
         if (this.isPlaying) {
@@ -43,23 +47,23 @@ public class HangmanGameController extends GameMenuController implements Initial
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.answer = getRandomWord();
-        for (int i = 0; i < this.answer.length(); i++) {
-            Label letter = new Label("_");
-            letter.setPrefWidth(30);
-            letter.setFont(Font.font("System", FontWeight.BOLD, 30));
-            this.crossWord.getChildren().add(letter);
+        if(this.isPlaying) {
+            this.answer = getRandomWord().toLowerCase();
+            for (int i = 0; i < this.answer.length(); i++) {
+                Label letter = new Label("_");
+                letter.setPrefWidth(30);
+                letter.setFont(Font.font("System", FontWeight.BOLD, 30));
+                this.crossWord.getChildren().add(letter);
+            }
+            System.out.println(1);
         }
     }
 
     private String getRandomWord() {
-        String word = Tries.getRamdomWord().getWordTarget();
-        if (word.contains(" ")
-                || word.contains("-")
-                || word.contains("'")) {
-            return getRandomWord();
-        }
-        return word;
+        GameDatabase gameDatabase = new GameDatabase();
+        List<Word> words = gameDatabase.getWordsByTopic(this.content);
+        Random random = new Random();
+        return words.get(random.nextInt(words.size())).getWordTarget();
     }
 
     private void check(String letter) {
@@ -107,11 +111,19 @@ public class HangmanGameController extends GameMenuController implements Initial
             dialog.getDialogPane().getButtonTypes().addAll(ButtonType.YES, ButtonType.NO);
             if (dialog.showAndWait().get().equals(ButtonType.YES)) {
                 SceneManager sceneManager = new SceneManager();
-                sceneManager.loadGame(SceneManager.SceneName.HANGMAN_GAME, "view/HangmanGame.fxml", event);
+                try {
+                    sceneManager.switchScene(SceneManager.SceneName.SELECT_CONTENT, event);
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
             }
         } else {
             SceneManager sceneManager = new SceneManager();
-            sceneManager.loadGame(SceneManager.SceneName.HANGMAN_GAME, "view/HangmanGame.fxml", event);
+            try {
+                sceneManager.switchScene(SceneManager.SceneName.SELECT_CONTENT, event);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
         }
     }
 
@@ -126,7 +138,7 @@ public class HangmanGameController extends GameMenuController implements Initial
                 return;
             }
         }
-
+        isPlaying = false;
         try {
             new SceneManager().switchScene(SceneManager.SceneName.HANGMAN_GAME_MENU, event);
         } catch (Exception e) {
@@ -134,9 +146,19 @@ public class HangmanGameController extends GameMenuController implements Initial
         }
     }
 
+    public void getTopic(ActionEvent event) {
+        this.content = ((Button) event.getSource()).getText();
+        this.isPlaying = true;
+        try {
+            sceneManager.loadGame(SceneManager.SceneName.HANGMAN_GAME, "view/HangmanGame.fxml", event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public void startGame(ActionEvent event) {
         try {
-            sceneManager.switchScene(SceneManager.SceneName.HANGMAN_GAME, event);
+            sceneManager.loadGame(SceneManager.SceneName.SELECT_CONTENT, "view/SelectContent.fxml", event);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

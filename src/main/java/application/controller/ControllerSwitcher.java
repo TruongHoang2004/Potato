@@ -55,4 +55,12 @@ public class ControllerSwitcher {
             throw new RuntimeException(e);
         }
     }
+
+    public void switchToSelectContent(ActionEvent event) {
+        try {
+            new SceneManager().switchScene(SceneManager.SceneName.SELECT_CONTENT, event);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

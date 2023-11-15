@@ -64,7 +64,7 @@ public class GameDatabase implements DatabaseInformation {
         }
     }
 
-    public ArrayList<Word> getWordByTopic(String topic) {
+    public ArrayList<Word> getWordsByTopic(String topic) {
 
         final String SQL_QUERY = "SELECT word, definition FROM vocabulary WHERE topic = ?";
         try {
