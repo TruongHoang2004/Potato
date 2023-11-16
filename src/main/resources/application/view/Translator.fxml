@@ -31,7 +31,7 @@
                         </Label>
                         <Button mnemonicParsing="false" onAction="#playSound1" prefHeight="40.0" prefWidth="50.0" styleClass="utilButton1" StackPane.alignment="CENTER_LEFT">
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="sound1" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../image/icon/sound.png" />
                                  </image>
@@ -111,7 +111,7 @@
                         </Label>
                         <Button mnemonicParsing="false" onAction="#playSound2" prefHeight="40.0" prefWidth="50.0" styleClass="utilButton1" StackPane.alignment="CENTER_LEFT">
                            <graphic>
-                              <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="sound2" fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../image/icon/sound.png" />
                                  </image>

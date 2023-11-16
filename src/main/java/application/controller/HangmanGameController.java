@@ -32,6 +32,8 @@ public class HangmanGameController extends GameMenuController implements Initial
     private ImageView hangmanImage = new ImageView();
     @FXML
     private Label resultLabel = new Label();
+    @FXML
+    private Label lostLabel = new Label();
     private String answer;
     private int numOfFalse = 0;
     private static boolean isPlaying = false;
@@ -90,6 +92,7 @@ public class HangmanGameController extends GameMenuController implements Initial
             };
             task.setOnSucceeded(event -> {
                 resultLabel.setText(this.answer.toUpperCase());
+                lostLabel.setVisible(true);
             });
             new Thread(task).start();
         }
