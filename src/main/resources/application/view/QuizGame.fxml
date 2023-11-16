@@ -12,14 +12,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.QuizGameController">
    <center>
       <VBox spacing="50.0">
          <children>
             <StackPane prefHeight="97.0" prefWidth="1280.0" styleClass="stack-pane">
                <children>
-                  <Text fx:id="questionLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" text="Câu hỏi" wrappingWidth="693.936767578125">
+                  <Text fx:id="questionLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text" textAlignment="CENTER" wrappingWidth="1095.5367674827576">
                      <font>
                         <Font size="24.0" />
                      </font>
@@ -28,52 +27,52 @@
             </StackPane>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="590.0" spacing="30.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="1">
+                  <Button fx:id="b1" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="1">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="2">
+                  <Button fx:id="b2" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="2">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="3">
+                  <Button fx:id="b3" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="3">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="4">
+                  <Button fx:id="b4" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="4">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="5">
+                  <Button fx:id="b5" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="5">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="6">
+                  <Button fx:id="b6" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="6">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="7">
+                  <Button fx:id="b7" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="7">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="8">
+                  <Button fx:id="b8" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="8">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="9">
+                  <Button fx:id="b9" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="9">
                      <font>
                         <Font name="Verdana Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="10">
+                  <Button fx:id="b10" mnemonicParsing="false" onAction="#loadQuestion" prefHeight="35.0" prefWidth="35.0" text="10">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -112,6 +111,11 @@
                   </Button>
                </children>
             </GridPane>
+            <Button fx:id="nextAndSubmitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#next" prefHeight="59.0" prefWidth="151.0" text="Next" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </center>
