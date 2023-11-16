@@ -37,7 +37,7 @@
                               <Insets left="10.0" />
                            </padding>
                         </TextField>
-                        <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.42" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
+                        <ImageView fitHeight="25.0" fitWidth="25.0" opacity="0.5" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER_RIGHT">
                            <image>
                               <Image url="@../image/icon/Search.png" />
                            </image>
@@ -51,7 +51,7 @@
                   <ListView fx:id="historyWordList" maxHeight="280.0" VBox.vgrow="NEVER" />
                </children>
             </VBox>
-            <VBox focusTraversable="true" spacing="10.0" StackPane.alignment="TOP_LEFT">
+            <VBox focusTraversable="true" minWidth="350.0" spacing="10.0" StackPane.alignment="TOP_LEFT">
                <children>
                   <StackPane maxHeight="50.0" minWidth="300.0" VBox.vgrow="ALWAYS">
                      <children>
@@ -63,9 +63,9 @@
                               <Insets left="5.0" />
                            </padding>
                         </Label>
-                        <HBox maxHeight="40.0" maxWidth="200.0" minHeight="40.0" minWidth="200.0" prefHeight="40.0" prefWidth="200.0" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
+                        <HBox maxHeight="42.0" maxWidth="215.0" minHeight="40.0" minWidth="200.0" prefHeight="42.0" prefWidth="215.0" spacing="5.0" StackPane.alignment="CENTER_RIGHT">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#playSound" prefHeight="40.0" prefWidth="40.0">
+                              <Button mnemonicParsing="false" onAction="#playSound" prefHeight="42.0" prefWidth="50.0">
                                  <graphic>
                                     <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -139,7 +139,7 @@
                               <Insets bottom="50.0" />
                            </StackPane.margin>
                         </HTMLEditor>
-                        <WebView fx:id="webView" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" StackPane.alignment="TOP_LEFT">
+                        <WebView fx:id="webView" fontScale="1.1" minHeight="-1.0" minWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" StackPane.alignment="TOP_LEFT">
                            <StackPane.margin>
                               <Insets />
                            </StackPane.margin></WebView>

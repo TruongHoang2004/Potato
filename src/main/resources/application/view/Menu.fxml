@@ -69,9 +69,9 @@
       </StackPane>
    </center>
    <top>
-      <StackPane prefHeight="55.0" BorderPane.alignment="CENTER">
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="exitGithub" mnemonicParsing="false" onAction="#exitGithub" prefHeight="55.0" prefWidth="55.0" style="-fx-border-color: transparent;" styleClass="utilButton1" visible="false" StackPane.alignment="TOP_RIGHT">
+            <Button fx:id="exitGithub" mnemonicParsing="false" onAction="#exitGithub" prefHeight="50.0" prefWidth="50.0" style="-fx-border-color: transparent;" styleClass="utilButton1" visible="false" StackPane.alignment="TOP_RIGHT">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>

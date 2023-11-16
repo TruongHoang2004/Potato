@@ -14,7 +14,7 @@
       <fx:include prefHeight="60.0" prefWidth="100.0" source="Header-screen.fxml" />
    </left>
    <center>
-      <VBox minWidth="400.0">
+      <VBox minWidth="450.0">
          <BorderPane.margin>
             <Insets left="50.0" right="50.0" />
          </BorderPane.margin>
