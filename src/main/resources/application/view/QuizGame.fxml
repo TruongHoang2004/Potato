@@ -14,7 +14,7 @@
 
 <BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/Style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.QuizGameController">
    <center>
-      <VBox spacing="50.0">
+      <VBox spacing="30.0">
          <children>
             <StackPane prefHeight="97.0" prefWidth="1280.0" styleClass="stack-pane">
                <children>
@@ -23,6 +23,11 @@
                         <Font size="24.0" />
                      </font>
                   </Text>
+               </children>
+            </StackPane>
+            <StackPane prefHeight="64.0" prefWidth="1180.0">
+               <children>
+                  <Label prefHeight="78.0" prefWidth="411.0" text="Label" />
                </children>
             </StackPane>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="590.0" spacing="30.0">
@@ -79,7 +84,7 @@
                   </Button>
                </children>
             </HBox>
-            <GridPane prefHeight="225.0" prefWidth="500.0">
+            <GridPane prefHeight="224.0" prefWidth="500.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -111,11 +116,25 @@
                   </Button>
                </children>
             </GridPane>
-            <Button fx:id="nextAndSubmitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#next" prefHeight="59.0" prefWidth="151.0" text="Next" textAlignment="CENTER">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
+            <StackPane prefHeight="69.0" prefWidth="1180.0">
+               <children>
+                  <Button fx:id="nextAndSubmitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#next" prefHeight="59.0" prefWidth="151.0" text="Next" textAlignment="CENTER" StackPane.alignment="CENTER_RIGHT">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1039.0" layoutY="42.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="59.0" prefWidth="151.0" text="Quit" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="59.0" prefWidth="151.0" text="Play again" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </StackPane>
          </children>
       </VBox>
    </center>

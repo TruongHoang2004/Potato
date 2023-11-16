@@ -12,7 +12,7 @@ import javafx.scene.text.Text;
 import java.net.URL;
 import java.util.*;
 
-public class QuizGameController implements Initializable {
+public class QuizGameController extends ControllerSwitcher implements Initializable {
 
     @FXML
     Text questionLabel;
