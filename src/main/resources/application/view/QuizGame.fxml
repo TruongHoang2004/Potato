@@ -27,7 +27,10 @@
             </StackPane>
             <StackPane prefHeight="64.0" prefWidth="1180.0">
                <children>
-                  <Label prefHeight="78.0" prefWidth="411.0" text="Label" />
+                  <Label fx:id="resultLabel" alignment="CENTER" prefHeight="54.0" prefWidth="798.0" textAlignment="CENTER">
+                     <font>
+                        <Font size="24.0" />
+                     </font></Label>
                </children>
             </StackPane>
             <HBox alignment="CENTER" prefHeight="32.0" prefWidth="590.0" spacing="30.0">
@@ -128,7 +131,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="59.0" prefWidth="151.0" text="Play again" textAlignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="42.0" mnemonicParsing="false" onAction="#playAgain" prefHeight="59.0" prefWidth="151.0" text="Play again" textAlignment="CENTER">
                      <font>
                         <Font size="24.0" />
                      </font>

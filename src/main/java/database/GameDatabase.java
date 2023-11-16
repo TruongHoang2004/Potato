@@ -11,7 +11,7 @@ public class GameDatabase implements DatabaseInformation {
      * Connect to MYSQL database.
      */
     private static void connectToDatabase() throws SQLException {
-        System.out.println("Connecting to database...");
+        System.out.println("Connecting to vocabulary database...");
         connection = DriverManager.getConnection(MYSQL_URL, USER_NAME, PASS_WORD);
         System.out.println("Connected to database successfully!");
     }

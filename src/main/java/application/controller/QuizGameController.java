@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.SceneManager;
 import database.GameDatabase;
 import database.Question;
 import database.Word;
@@ -7,6 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 
 import java.net.URL;
@@ -46,6 +50,8 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
     Button b10 = new Button("10");
     @FXML
     Button nextAndSubmitButton = new Button("Next");
+    @FXML
+    Label resultLabel = new Label();
     int currentQuestion = 0;
     Button currentButton = b1;
     boolean doing = true;
@@ -245,6 +251,8 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         } else {
             b10.setStyle("-fx-background-color: #ff0000");
         }
+
+        resultLabel.setText("Correct: " + correctNumber + "/10");
     }
 
     public void next() {
@@ -261,5 +269,17 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
             case 8 -> b10.fire();
             case 9 -> submit();
         }
+    }
+
+    public void playAgain(ActionEvent event) {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Play again");
+        dialog.setContentText("Do you want to play again?");
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+        if (dialog.showAndWait().get() == ButtonType.NO) {
+            return;
+        }
+        sceneManager.loadGame(SceneManager.SceneName.QUIZ_GAME, "view/QuizGame.fxml", event);
     }
 }
