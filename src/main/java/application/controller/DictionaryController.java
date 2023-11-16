@@ -7,6 +7,7 @@ import database.Word;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.web.HTMLEditor;
 import javafx.scene.web.WebEngine;
@@ -36,6 +37,8 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
     private Button cancelButton = new Button();
     @FXML
     private  Button okButton = new Button();
+    @FXML
+    private ImageView loading = new ImageView();
     String pickingWord;
 
     private WebEngine webEngine;
@@ -188,6 +191,14 @@ public class DictionaryController extends ControllerSwitcher implements Initiali
                 Dialog<Void> dialog = new Dialog<>();
                 dialog.setTitle("Can't play sound");
                 dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+            });
+
+            task.setOnSucceeded(event -> {
+                loading.setVisible(false);
+            });
+
+            task.setOnRunning(event -> {
+                loading.setVisible(true);
             });
 
             new Thread(task).start();

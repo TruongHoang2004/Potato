@@ -21,7 +21,7 @@ public class TranslateController extends ControllerSwitcher {
     @FXML
     private Label bottomLabel = new Label("Vietnamese");
     @FXML
-    private Label translatingLabel = new Label("Translating...");
+    private Label resultLabel = new Label();
     @FXML
     private ImageView loading = new ImageView();
     private int mode = 0;
@@ -67,11 +67,19 @@ public class TranslateController extends ControllerSwitcher {
             outputTextArea.setText("Translating...");
             loading.setVisible(true);
         });
+
+        task.setOnFailed(event -> {
+            outputTextArea.setText("Cannot translate this sentence");
+            loading.setVisible(false);
+        });
         new Thread(task).start();
     }
 
     public void playSound1() {
 
+        if (inputTextArea.getText().isEmpty()) {
+            return;
+        }
         TextToSpeech task;
         if (mode == 0) {
             task = new TextToSpeech(inputTextArea.getText(), "en");
@@ -81,18 +89,31 @@ public class TranslateController extends ControllerSwitcher {
             new Thread(task).start();
         }
 
-        task.setOnSucceeded(event -> {
-            loading.setVisible(false);
+        task.setOnFailed(event -> {
+            Thread thread = new Thread(() -> {
+                try {
+                    resultLabel.setText("Cannot play this sound");
+                    Thread.sleep(3000);
+                    resultLabel.setText("");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                resultLabel.setText("");
+            });
+            thread.start();
         });
 
-        task.setOnRunning(event -> {
-            loading.setVisible(true);
-        });
+        task.setOnSucceeded(event -> loading.setVisible(false));
+
+        task.setOnRunning(event -> loading.setVisible(true));
 
         new Thread(task).start();
     }
 
     public void playSound2() {
+        if (outputTextArea.getText().isEmpty()) {
+            return;
+        }
         TextToSpeech task;
         if (mode == 0) {
             task = new TextToSpeech(outputTextArea.getText(), "vi");
@@ -102,13 +123,23 @@ public class TranslateController extends ControllerSwitcher {
             new Thread(task).start();
         }
 
-        task.setOnSucceeded(event -> {
-            loading.setVisible(false);
+        task.setOnFailed(event -> {
+            Thread thread = new Thread(() -> {
+                try {
+                    resultLabel.setText("Cannot play this sound");
+                    Thread.sleep(3000);
+                    resultLabel.setText("");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                resultLabel.setText("");
+            });
+            thread.start();
         });
 
-        task.setOnRunning(event -> {
-            loading.setVisible(true);
-        });
+        task.setOnSucceeded(event -> loading.setVisible(false));
+
+        task.setOnRunning(event -> loading.setVisible(true));
     }
 
     public void setOnKeyPressed(KeyEvent event) {

@@ -181,26 +181,6 @@
                   <Font name="Verdana Bold" size="36.0" />
                </font></Label>
             <HBox prefHeight="60.0" prefWidth="160.0" spacing="20.0">
-               <children>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="70.0">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/sound.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="70.0">
-                     <graphic>
-                        <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../image/icon/music.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
                <StackPane.margin>
                   <Insets />
                </StackPane.margin>

@@ -167,7 +167,17 @@
          </children></StackPane>
    </top>
    <bottom>
-      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER" />
+      <StackPane prefHeight="50.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fx:id="loading" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" visible="false" StackPane.alignment="CENTER_RIGHT">
+               <image>
+                  <Image url="@../image/icon/loading.gif" />
+               </image>
+               <StackPane.margin>
+                  <Insets right="20.0" />
+               </StackPane.margin>
+            </ImageView>
+         </children></StackPane>
    </bottom>
    <right>
       <StackPane prefWidth="50.0" BorderPane.alignment="CENTER" />

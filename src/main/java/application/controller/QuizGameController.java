@@ -54,7 +54,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
     Label resultLabel = new Label();
     int currentQuestion = 0;
     Button currentButton = b1;
-    boolean doing = true;
+    boolean playing = true;
     int correctNumber = 0;
 
 
@@ -99,7 +99,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         answer4Button.setText(questions.get(currentQuestion).getAnswer()[3]);
         questionLabel.setText(questions.get(currentQuestion).getQuestion());
 
-        if (doing) {
+        if (playing) {
             if (currentQuestion == 9) {
                 nextAndSubmitButton.setText("Submit");
                 nextAndSubmitButton.setOnAction(event1 -> submit());
@@ -142,7 +142,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         loadAllQuestions();
 
         answer1Button.setOnAction(event -> {
-            if (doing) {
+            if (playing) {
                 questions.get(currentQuestion).setChosenAnswer(0);
                 answer1Button.setStyle("-fx-background-color: #ffff00");
                 answer2Button.setStyle("-fx-background-color: #ffffff");
@@ -152,7 +152,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         });
 
         answer2Button.setOnAction(event -> {
-            if (doing) {
+            if (playing) {
                 questions.get(currentQuestion).setChosenAnswer(1);
                 answer1Button.setStyle("-fx-background-color: #ffffff");
                 answer2Button.setStyle("-fx-background-color: #ffff00");
@@ -162,7 +162,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         });
 
         answer3Button.setOnAction(event -> {
-            if (doing) {
+            if (playing) {
                 questions.get(currentQuestion).setChosenAnswer(2);
                 answer1Button.setStyle("-fx-background-color: #ffffff");
                 answer2Button.setStyle("-fx-background-color: #ffffff");
@@ -172,7 +172,7 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
         });
 
         answer4Button.setOnAction(event -> {
-            if (doing) {
+            if (playing) {
                 questions.get(currentQuestion).setChosenAnswer(3);
                 answer1Button.setStyle("-fx-background-color: #ffffff");
                 answer2Button.setStyle("-fx-background-color: #ffffff");
@@ -185,7 +185,12 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
     }
 
     public void submit() {
-        doing = false;
+
+        if (!playing) {
+            return;
+        }
+
+        playing = false;
         for (int i = 0; i < 10; ++i) {
             if (questions.get(i).isCorrect()) {
                 correctNumber++;
@@ -272,14 +277,30 @@ public class QuizGameController extends ControllerSwitcher implements Initializa
     }
 
     public void playAgain(ActionEvent event) {
-        Dialog<ButtonType> dialog = new Dialog<>();
-        dialog.setTitle("Play again");
-        dialog.setContentText("Do you want to play again?");
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
-        dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
-        if (dialog.showAndWait().get() == ButtonType.NO) {
-            return;
+        if (playing) {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Play again");
+            dialog.setContentText("Do you want to play again?");
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+            if (dialog.showAndWait().get() == ButtonType.NO) {
+                return;
+            }
         }
         sceneManager.loadGame(SceneManager.SceneName.QUIZ_GAME, "view/QuizGame.fxml", event);
+    }
+
+    public void quit(ActionEvent event) {
+        if (playing) {
+            Dialog<ButtonType> dialog = new Dialog<>();
+            dialog.setTitle("Quit");
+            dialog.setContentText("Do you want to quit?");
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.YES);
+            dialog.getDialogPane().getButtonTypes().add(ButtonType.NO);
+            if (dialog.showAndWait().get() == ButtonType.NO) {
+                return;
+            }
+        }
+        switchToGameMenu(event);
     }
 }

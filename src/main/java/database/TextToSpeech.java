@@ -1,7 +1,6 @@
 package database;
 
 import javafx.concurrent.Task;
-import javafx.scene.control.Dialog;
 import javazoom.jl.player.Player;
 
 import java.io.InputStream;
@@ -33,14 +32,21 @@ public class TextToSpeech extends Task<Void> {
             new Player(audio).play();
             con.disconnect();
         } catch (Exception e) {
-            e.printStackTrace();
-            System.err.println("Error in getting voices");
+            try {
+                throw new Exception("Failed");
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
         }
     }
 
     @Override
-    protected Void call() {
-        playGoogleTranslateSound();
+    protected Void call() throws Exception {
+        try {
+            playGoogleTranslateSound();
+        } catch (Exception e) {
+            throw new Exception("Task failed", e);
+        }
         return null;
     }
 }

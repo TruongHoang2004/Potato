@@ -259,7 +259,7 @@
                      </graphic>
                   </Button>
                   <Region prefHeight="50.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" HBox.hgrow="ALWAYS">
+                  <Button mnemonicParsing="false" onAction="#quitGame" prefHeight="50.0" prefWidth="150.0" styleClass="utilButton" HBox.hgrow="ALWAYS">
                      <graphic>
                         <ImageView fitHeight="30.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                            <image>

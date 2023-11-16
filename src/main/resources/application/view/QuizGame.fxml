@@ -126,7 +126,7 @@
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1039.0" layoutY="42.0" mnemonicParsing="false" onAction="#switchToGameMenu" prefHeight="59.0" prefWidth="151.0" text="Quit" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1039.0" layoutY="42.0" mnemonicParsing="false" onAction="#quit" prefHeight="59.0" prefWidth="151.0" text="Quit" textAlignment="CENTER" StackPane.alignment="CENTER_LEFT">
                      <font>
                         <Font size="24.0" />
                      </font>

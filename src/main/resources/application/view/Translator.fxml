@@ -67,7 +67,7 @@
                      <image>
                         <Image url="@../image/icon/loading.gif" />
                      </image></ImageView>
-                  <Region prefHeight="70.0" prefWidth="256.0" />
+                  <Label fx:id="resultPlayer" prefHeight="44.0" prefWidth="326.0" />
                   <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../image/icon/Downward_arrow.png" />

@@ -29,26 +29,6 @@
    </center>
    <top>
       <HBox prefHeight="60.0" prefWidth="160.0" spacing="20.0" BorderPane.alignment="CENTER">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="70.0" styleClass="utilButton1">
-               <graphic>
-                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/icon/sound.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="70.0" styleClass="utilButton1">
-               <graphic>
-                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../image/icon/music.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </Button>
-         </children>
          <BorderPane.margin>
             <Insets left="20.0" top="20.0" />
          </BorderPane.margin>
